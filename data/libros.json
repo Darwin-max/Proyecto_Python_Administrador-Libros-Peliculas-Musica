@@ -1,0 +1,39 @@
+[
+      {
+        "titulo": "Cien anos de soledad",
+        "autor": "Gabriel Garcia Marquez",
+        "genero": "Realismo magico",
+        "anio_publicacion": "1967",
+        "descripcion": "Una saga familiar que narra la historia de Macondo y la familia Buendia."
+      },
+      {
+        "titulo": "El amor en los tiempos del colera",
+        "autor": "Gabriel Garcia Marquez",
+        "genero": "Novela",
+        "anio_publicacion": "1985",
+        "descripcion": "Una historia de amor que perdura a lo largo de las decadas."
+      },
+      {
+        "titulo": "Don Quijote de la Mancha",
+        "autor": "Miguel de Cervantes",
+        "genero": "Novela",
+        "anio_publicacion": "1605",
+        "descripcion": "Las aventuras del ingenioso hidalgo Don Quijote y su escudero Sancho Panza."
+      },
+      {
+        "titulo": "Mil novecientos ochenta y cuatro",
+        "autor": "George Orwell",
+        "genero": "Ciencia ficcion",
+        "anio_publicacion": "1949",
+        "descripcion": "Una distopia sobre un gobierno totalitario y la vigilancia constante."
+      },
+      {
+        "titulo": "Orgullo y prejuicio",
+        "autor": "Jane Austen",
+        "genero": "Romance",
+        "anio_publicacion": "1813",
+        "descripcion": "Una novela que explora las relaciones sociales y el amor en la Inglaterra del siglo diecinueve."
+      }
+    ]
+
+  

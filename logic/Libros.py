@@ -29,3 +29,15 @@ def Libros():
                 diccionario.pop("autor")
                 tatiana.append(diccionario)
         print(tabulate(tatiana, headers="keys", tablefmt="grid"))
+
+
+def Libr():
+        libros = openJSON("libros")
+        sara = []
+        for diccionario in libros:
+                diccionario.pop("descripcion")  
+                diccionario.pop("anio_publicacion")
+                diccionario.pop("genero")
+                diccionario.pop("titulo")
+                sara.append(diccionario)
+        print(tabulate( sara, headers="keys", tablefmt="grid"))

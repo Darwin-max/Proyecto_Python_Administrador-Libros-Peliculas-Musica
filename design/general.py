@@ -2,9 +2,11 @@ from tabulate import tabulate
 from logic.Libros import añadirEle, ver_libros, Libros
 from logic.musica import añadireleMusica, ver_musica
 from logic.pelicula import añadirElpeli, ver_peliculas
-from design.libros import buscar_libros
+from design.libros import buscar_libros, busca_auti
 from design.menus import *
-
+from design.peliculas import buiscar_pelicula, buisr_pelicula
+from design.manu_de_buscar import menu
+from design.musica import buiscar_musica, buste
 def añadirElemento():    
     while True:
         print(añadir_emtos)
@@ -47,20 +49,48 @@ def conti():
 
         
 def noloencuentro():
+    
     while True:
         print(buscatElemento)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
-            if opcion == 1:
-                buscar_libros()
-            # elif opcion == 2:
-            #     buscar_peliculas()
-            elif opcion == 3:
-                tableDiscs()
-            elif opcion == 4:
-                break
-            else:
-                print("Por favor, selecciona una opción válida.")
+            match opcion:
+                    case  1:
+                        while True:
+                            meno = menu()
+                            match meno:
+                                case 1:
+                                    buscar_libros()
+                                case 2:
+                                    buiscar_pelicula()
+                                case 3:
+                                    buiscar_musica()
+                                case 0:
+                                    break
+                                case _:
+                                    print("opcion no valida")
+                    case 2:
+                        while True:
+                            meno = menu()
+                            match meno:
+                                case 1 :
+                                    busca_auti()
+                                case 2 :
+                                    buisr_pelicula()
+                                case 3 :
+                                    buste()
+                                case 0 :
+                                    break
+                                case _:
+                                    print("obcion no valida")
+                    
+        #         buiscar_pelicula()  e
+        #     # elif opcion == 3:
+        #     #     tableDiscs()
+        #     # elif opcion == 4:
+        #         break
+        #     else:
+        #         print("Por favor, selecciona una opción válida.")
         except ValueError:
             print("Por favor, selecciona una opción válida.")
 

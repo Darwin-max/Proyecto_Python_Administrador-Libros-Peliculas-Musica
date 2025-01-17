@@ -1,5 +1,4 @@
-{
-    "musica": [
+[
       {
         "cancion": "La Bicicleta",
         "cantante": "Carlos Vives y Shakira",
@@ -30,6 +29,6 @@
         "genero": "Pop/Reguetón",
         "disco": "Oral Fixation, Vol. 2"
       }
-    ]
-  }
+]    
+  
   

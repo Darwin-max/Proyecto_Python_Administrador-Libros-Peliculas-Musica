@@ -49,7 +49,11 @@ buscatElemento = """
 4. Regresar al Menú Principal
 ===========================================
 # Selecciona una opción (1-4):
-# """
+
+menudebuscatElemento = """
+
+
+
 # editarElemento = """
 # ===========================================
 #         Editar un Elemento

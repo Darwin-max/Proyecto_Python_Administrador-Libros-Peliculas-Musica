@@ -8,11 +8,15 @@ def openJSON(datos):
         converted = json.loads(data)  # Convertir el contenido a lista de Python
         return converted
     
-def writeJSON(datos, diccionario):
-                                                        #--- GUARDAR EL DICCIONARIO A JSON ---
-                                                                #1. Serializar el diccionario a formato JSON
-    objetoJson= json.dumps(diccionario)
+# def writeJSON(datos, diccionario):
+# #--- GUARDAR EL DICCIONARIO A JSON ---
+# #1. Serializar el diccionario a formato JSON
+#     objetoJson= json.dumps(diccionario)
 
-#Guardar en un archivo JSON la variable "objetoJson"
-    with open (f"data/{datos}.json", "w") as archivoSalida:
-        archivoSalida.write(objetoJson)
+# #Guardar en un archivo JSON la variable "objetoJson"
+#     with open (f"data/{datos}.json", "w") as archivoSalida:
+#         archivoSalida.write(objetoJson)
+
+def writeJSON(datos, diccionario):
+    with open(f"data/{datos}.json", "w", encoding="utf-8") as file:
+        json.dump(diccionario, file, indent=4)

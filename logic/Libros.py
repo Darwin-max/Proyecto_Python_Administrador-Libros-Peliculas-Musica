@@ -16,3 +16,16 @@ def añadirEle():
 
 def ver_libros():
         print(tabulate(libros, headers="keys", tablefmt="grid"))
+
+
+
+def Libros():
+        libros = openJSON("libros")
+        tatiana = []
+        for diccionario in libros:
+                diccionario.pop("descripcion")  
+                diccionario.pop("anio_publicacion")
+                diccionario.pop("genero")
+                diccionario.pop("autor")
+                tatiana.append(diccionario)
+        print(tabulate(tatiana, headers="keys", tablefmt="grid"))

@@ -1,8 +1,8 @@
 from tabulate import tabulate
-from logic.Libros import añadirEle, ver_libros
+from logic.Libros import añadirEle, ver_libros, Libros
 from logic.musica import añadireleMusica, ver_musica
 from logic.pelicula import añadirElpeli, ver_peliculas
-
+from design.libros import buscar_libros
 from design.menus import *
 
 def añadirElemento():    
@@ -46,23 +46,23 @@ def conti():
 
 
         
-# def noloencuentro():
-#     while True:
-#         print(buscatElemento)
-#         try:
-#             opcion = int(input("Ingrese el número de la opción: "))
-#             if opcion == 1:
-#                 buscar_Libros()
-#             # elif opcion == 2:
-#             #     buscar_peliculas()
-#             elif opcion == 3:
-#                 tableDiscs()
-#             elif opcion == 4:
-#                 break
-#             else:
-#                 print("Por favor, selecciona una opción válida.")
-#         except ValueError:
-#             print("Por favor, selecciona una opción válida.")
+def noloencuentro():
+    while True:
+        print(buscatElemento)
+        try:
+            opcion = int(input("Ingrese el número de la opción: "))
+            if opcion == 1:
+                buscar_libros()
+            # elif opcion == 2:
+            #     buscar_peliculas()
+            elif opcion == 3:
+                tableDiscs()
+            elif opcion == 4:
+                break
+            else:
+                print("Por favor, selecciona una opción válida.")
+        except ValueError:
+            print("Por favor, selecciona una opción válida.")
 
 # def editele ():
 #     while True:

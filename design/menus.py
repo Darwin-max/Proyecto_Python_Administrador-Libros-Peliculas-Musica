@@ -38,16 +38,16 @@ verTodosElementos = """
 Selecciona una opción (1-4):
 """
 
-# buscatElemento = """
-# ===========================================
-#         Buscar un Elemento
-# ===========================================
-# ¿Cómo deseas buscar?
-# 1. Buscar por Título
-# 2. Buscar por Autor/Director/Artista
-# 3. Buscar por Género
-# 4. Regresar al Menú Principal
-# ===========================================
+buscatElemento = """
+===========================================
+        Buscar un Elemento
+===========================================
+¿Cómo deseas buscar?
+1. Buscar por Título
+2. Buscar por Autor/Director/Artista
+3. Buscar por Género
+4. Regresar al Menú Principal
+===========================================
 # Selecciona una opción (1-4):
 # """
 # editarElemento = """

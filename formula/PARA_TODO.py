@@ -14,13 +14,5 @@ def writeJSON(datos, diccionario):
     objetoJson= json.dumps(diccionario)
 
 #Guardar en un archivo JSON la variable "objetoJson"
-    with open("./archivos/ejemplo.json","w") as archivoSalida:
+    with open (f"data/{datos}.json", "w") as archivoSalida:
         archivoSalida.write(objetoJson)
-
-
-
-
-
-
-
-

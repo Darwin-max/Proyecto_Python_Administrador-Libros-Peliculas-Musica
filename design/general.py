@@ -1,16 +1,12 @@
 from tabulate import tabulate
-from logic.musica import tableDiscs
 from logic.Libros import añadirEle
+from logic.musica import añadireleMusica
 
-from design.menus import verTodosElementos
-# , buscatElemento, editarElemento, eliminarElemento, verelementosPorcategoria, guardarCargar
-# from logic.peliculas import peliculas, buscar_peliculas
-
-
+from design.menus import *
 
 def añadirElemento():    
     while True:
-        print(verTodosElementos)
+        print(añadir_emtos)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
             if opcion == 1:
@@ -18,7 +14,7 @@ def añadirElemento():
             # elif opcion == 2:
             #     peliculas()
             elif opcion == 3:
-                musica()
+                añadireleMusica()
             elif opcion == 4:
                 break
             else:

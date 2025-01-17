@@ -1,22 +1,15 @@
 import json
-import tabulate
-def designDiscs():
-    print("""
-    ===========================================
-        Buscar un Elemento
-    ===========================================
-    ¿Cómo deseas buscar?
-    1. Buscar por Título
-    2. Buscar por Autor/Director/Artista
-    3. Buscar por Género
-    4. Regresar al Menú Principal
-    ===========================================
-Selecciona una opción (1-4):
-    """)
+from tabulate import tabulate
+from formula.PARA_TODO import openJSON
 
-def tableDiscs():
-        with open("data/discs.json", "r") as file:
-            discs = json.load(file)
-            print(tabulate(discs, headers="keys", tablefmt="grid"))
+musica = openJSON("musica") # Cargar los datos de la lista de música
+def añadireleMusica():  # Añadir elementos a la lista de música
+        print(tabulate(musica, headers="keys", tablefmt="grid"))  # Mostrar la lista de música
+        cansion = input("Canción: ")    # Solicitar los datos de la canción
+        artista = input("Artista: ")            
+        genero = input("Género: ")
+        año = input("Año: ")
+        dada = {"Canción": cansion, "Artista": artista, "Género": genero, "Año": año}  # Crear un diccionario con los datos de la canción y el resto de elementos
+        musica.append(dada)    # Añadir el diccionario a la lista de música  
 
-
+        

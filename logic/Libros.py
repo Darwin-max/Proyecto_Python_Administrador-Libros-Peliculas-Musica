@@ -1,7 +1,7 @@
 import json
 from tabulate import tabulate
-from formula.libros import openJSON
-from formula.libros import *
+from formula.PARA_TODO import openJSON
+from formula.PARA_TODO import *
 
 
 libros = openJSON("libros")
@@ -11,6 +11,7 @@ def añadirEle():
         autor = input("Autor: ")
         genero = input("Género: ")
         año = input("Año: ")
-        dada = {"Título": titulo, "Autor": autor, "Género": genero, "Año": año}
+        descripcion =int( input  ("Descripción: "))
+        dada = {"titulo": titulo, "autor": autor, "genero": genero, "anio_publicacion": año, "descripcion": descripcion}
         libros.append(dada)
 

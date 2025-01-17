@@ -1,9 +1,11 @@
 # from design.musica import musica
 from tabulate import tabulate
-# from logic.musica import tableDiscs
+from design.menus import menuPrincipal
+
 from logic.Libros import *
 from design.general import añadirElemento
-from design.menus import menuPrincipal
+
+
 
 
 
@@ -19,7 +21,7 @@ if __name__ == '__main__':
             if opcion == 1:
                añadirElemento()
             elif opcion == 2:
-               conti() 
+               conti()
             elif opcion == 3:
                noloencuentro()
             elif opcion == 4:

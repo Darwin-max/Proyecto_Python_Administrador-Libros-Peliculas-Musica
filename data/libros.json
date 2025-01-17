@@ -31,7 +31,7 @@
         "titulo": "Orgullo y prejuicio",
         "autor": "Jane Austen",
         "genero": "Romance",
-        "anio_publicacion": "1813",
+        "anio_publicacion" : "1813",      
         "descripcion": "Una novela que explora las relaciones sociales y el amor en la Inglaterra del siglo diecinueve."
       }
     ]

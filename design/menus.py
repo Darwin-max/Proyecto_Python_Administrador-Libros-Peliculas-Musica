@@ -13,7 +13,18 @@ menuPrincipal = """
 ===========================================
 Selecciona una opción (1-8):
 """
-
+añadir_emtos = """
+===========================================
+        Añadir un Nuevo Elemento
+===========================================
+¿Qué tipo de elemento deseas añadir?
+1. Libro
+2. Película
+3. Música
+4. Regresar al Menú Principal
+===========================================
+Selecciona una opción (1-4):
+"""
 verTodosElementos = """ 
 ===========================================
         Ver Todos los Elementos

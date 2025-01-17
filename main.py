@@ -3,7 +3,7 @@ from tabulate import tabulate
 from design.menus import menuPrincipal
 
 from logic.Libros import *
-from design.general import añadirElemento
+from design.general import añadirElemento, conti
 
 
 

@@ -1,6 +1,7 @@
 from tabulate import tabulate
-from logic.Libros import añadirEle
-from logic.musica import añadireleMusica
+from logic.Libros import añadirEle, ver_libros
+from logic.musica import añadireleMusica, ver_musica
+from logic.pelicula import añadirElpeli, ver_peliculas
 
 from design.menus import *
 
@@ -11,8 +12,8 @@ def añadirElemento():
             opcion = int(input("Ingrese el número de la opción: "))
             if opcion == 1:
                 añadirEle()
-            # elif opcion == 2:
-            #     peliculas()
+            elif opcion == 2:
+                añadirElpeli()
             elif opcion == 3:
                 añadireleMusica()
             elif opcion == 4:
@@ -23,25 +24,25 @@ def añadirElemento():
             print("Por favor, selecciona una opción válida.")
 
             
-# def conti():
-#     while  True:
-#         print(verTodosElementos)
-#         try:
-#                 opcion = int(input("Ingrese el número de la opción: "))
+def conti():
+    while  True:
+        print(verTodosElementos)
+        try:
+                opcion = int(input("Ingrese el número de la opción: "))
     
-#                 if opcion == 1:
-#                     libros()
-#                 # elif opcion == 2:
-#                 #     peliculas()
-#                 elif opcion == 3:
-#                     musica()
-#                 elif opcion == 4:
-#                     break
-#                 else:
-#                     print("Por favor, selecciona una opción válida.")
+                if opcion == 1:
+                    ver_libros()
+                elif opcion == 2:
+                    ver_peliculas()
+                elif opcion == 3:
+                    ver_musica()
+                elif opcion == 4:
+                    break
+                else:
+                    print("Por favor, selecciona una opción válida.")
         
-#         except ValueError:
-#                 print("Por favor, selecciona una opción válida.")
+        except ValueError:
+                print("Por favor, selecciona una opción válida.")
 
 
         

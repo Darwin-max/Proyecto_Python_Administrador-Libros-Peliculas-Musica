@@ -1,5 +1,5 @@
 from tabulate import tabulate
-from logic.musica import musicadd, musicos
+from logic.musica import musicadd, musicos, music
 from formula.PARA_TODO import openJSON
 
 
@@ -30,3 +30,17 @@ def buste():
             break
     else:
         print("No se encontró el pelicula")
+
+
+def buisr_musicar():
+    musica = openJSON("musica")
+    music()
+    print("¿Que cancion deseas buscar")
+    genero = input("genero: ")
+    for musica in musica:
+        if musica["genero"] == genero:
+            print(tabulate([genero],  headers="keys", tablefmt="grid" ))
+            break
+    else:
+        print("No se encontró el pelicula")
+

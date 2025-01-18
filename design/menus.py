@@ -50,7 +50,7 @@ buscatElemento = """
 ===========================================
 # Selecciona una opción (1-4):
 
-menudebuscatElemento = """
+"""
 
 
 

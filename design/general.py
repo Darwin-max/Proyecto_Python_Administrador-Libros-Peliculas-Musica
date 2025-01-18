@@ -2,11 +2,11 @@ from tabulate import tabulate
 from logic.Libros import añadirEle, ver_libros, Libros
 from logic.musica import añadireleMusica, ver_musica
 from logic.pelicula import añadirElpeli, ver_peliculas
-from design.libros import buscar_libros, busca_auti
+from design.libros import buscar_libros, busca_auti, buscar_gene
 from design.menus import *
-from design.peliculas import buiscar_pelicula, buisr_pelicula
+from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas
 from design.manu_de_buscar import menu
-from design.musica import buiscar_musica, buste
+from design.musica import buiscar_musica, buste,  buisr_musicar
 def añadirElemento():    
     while True:
         print(añadir_emtos)
@@ -83,16 +83,27 @@ def noloencuentro():
                                     break
                                 case _:
                                     print("obcion no valida")
-                    
-        #         buiscar_pelicula()  e
-        #     # elif opcion == 3:
-        #     #     tableDiscs()
-        #     # elif opcion == 4:
-        #         break
-        #     else:
-        #         print("Por favor, selecciona una opción válida.")
+                    case 3:
+                        while True:
+                            meno = menu()
+                            match meno:
+                                case 1:
+                                    buscar_gene()
+                                case 2:
+
+                                    uisr_peliculas ()
+                                case 3:
+                                    buisr_musicar()
+                                case 0 :
+                                    break
+                                case _:
+                                    print("obcion no valida")
         except ValueError:
             print("Por favor, selecciona una opción válida.")
+
+
+
+            
 
 # def editele ():
 #     while True:

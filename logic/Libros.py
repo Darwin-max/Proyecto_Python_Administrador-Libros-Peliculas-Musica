@@ -41,3 +41,15 @@ def Libr():
                 diccionario.pop("titulo")
                 sara.append(diccionario)
         print(tabulate( sara, headers="keys", tablefmt="grid"))
+
+
+def nose():
+        libros = openJSON("libros")
+        juli = []
+        for diccionario in libros:
+                diccionario.pop("descripcion")  
+                diccionario.pop("anio_publicacion")
+                diccionario.pop("autor")
+                diccionario.pop("titulo")
+                juli.append(diccionario)
+        print(tabulate(juli, headers="keys", tablefmt="grid"))

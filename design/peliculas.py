@@ -1,5 +1,5 @@
 from tabulate import tabulate
-from logic.pelicula import  peliculas_ , pelicas_
+from logic.pelicula import  peliculas_ , pelicas_, masTarde
 from formula.PARA_TODO import openJSON
 
 
@@ -30,3 +30,17 @@ def buisr_pelicula():
             break
     else:
         print("No se encontró el pelicula")
+
+def uisr_peliculas():
+    pelicula = openJSON("libros")
+    masTarde()
+    print("¿Qué pelicula deseas buscar?")
+    gener = input("Genero: ")
+    for pelicula in pelicula:
+        if pelicula["genero"]  == gener:
+            print(tabulate([   gener], headers="keys", tablefmt="grid"))
+            break
+    else:
+        print("No se encontró el pelicula")
+
+

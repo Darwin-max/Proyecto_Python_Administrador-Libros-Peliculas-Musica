@@ -1,6 +1,6 @@
 
 from tabulate import tabulate
-from logic.Libros import Libros , Libr
+from logic.Libros import Libros , Libr, nose
 from formula.PARA_TODO import openJSON
 
 
@@ -33,3 +33,15 @@ def busca_auti():
     else:
         print("No se encontró el libro")
     
+
+def buscar_gene():
+    Libros = openJSON("libros") 
+    nose()
+    print("¿Que libro deseas")
+    genero = input("genero: ")
+    for  Libros in Libros :
+        if Libros ["genero"] == genero:
+            print(tabulate( [   Libros], headers="keys", tablefmt="grid"))
+            break
+    else:
+        print("No se encontró el libro")

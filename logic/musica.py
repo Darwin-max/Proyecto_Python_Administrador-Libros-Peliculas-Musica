@@ -50,3 +50,13 @@ def musicos():
         print(tabulate(francy, headers="keys", tablefmt="grid"))
                 
                 
+def music():
+        musicas = openJSON("musica")
+        kenji = []
+        for dicccionario in musicas:
+                dicccionario.pop("cantante")
+                dicccionario.pop("cancion")
+                dicccionario.pop("disco")
+                kenji.append(dicccionario)
+        print(tabulate(kenji, headers="keys", tablefmt="grid"))
+

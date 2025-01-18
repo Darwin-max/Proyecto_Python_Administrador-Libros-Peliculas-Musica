@@ -1,5 +1,5 @@
 [
-{
+        {
         "titulo": "El Padrino",
         "genero": "Crimen, Drama",
         "director": "Francis Ford Coppola",
@@ -38,5 +38,5 @@
         "año": 2014,
         "valoracion": 8.6,
         "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad."
-    }
+        }
 ]

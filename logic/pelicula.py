@@ -39,9 +39,9 @@ def peliculas_():
 
 
 def pelicas_():
-        pelicul = openJSON("peliculas")
+        pelicula = openJSON("peliculas")
         amor =  []
-        for dicccionario in pelicul:
+        for dicccionario in pelicula:
                 dicccionario.pop("genero")
                 dicccionario.pop("año")
                 dicccionario.pop("titulo")
@@ -49,4 +49,16 @@ def pelicas_():
                 dicccionario.pop("descripcion")
                 amor.append(dicccionario)
         print(tabulate(    amor, headers="keys", tablefmt="grid"))
+                
+def masTarde ():
+        pelicula = openJSON("peliculas")
+        cansado = []
+        for dicccionario in pelicula:
+                dicccionario.pop("director")
+                dicccionario.pop("año")
+                dicccionario.pop("titulo")
+                dicccionario.pop("valoracion")
+                dicccionario.pop("descripcion")
+                cansado.append(dicccionario)
+        print(tabulate(    cansado, headers="keys", tablefmt="grid"))
                 

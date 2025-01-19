@@ -7,6 +7,7 @@ from design.menus import *
 from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas
 from design.manu_de_buscar import menu
 from design.musica import buiscar_musica, buste,  buisr_musicar
+
 def añadirElemento():    
     while True:
         print(añadir_emtos)

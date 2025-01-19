@@ -1,19 +1,55 @@
 import json
+import tempfile
 from tabulate import tabulate
 from formula.PARA_TODO import *
 
 
-peliculas = openJSON("peliculas") # Cargar los datos de la lista de películas
 
-def añadirElpeli():         # Añadir elementos a la lista de películas
-        print(tabulate(peliculas, headers="keys", tablefmt="grid")) # Mostrar la lista de películas
-        titulo = input("Título: ") # Solicitar los datos de la película
-        director = input("Director: ") 
-        genero = input("Género: ") # si la respuesta no es un numero 
-        descripcion = input("Descripción: ") # Crear un diccionario con los datos de la película y el resto de elementos
-        dada = {"titulo": titulo, "director": director, "genero": genero, "anio_publicacion": año, "descripcion": descripcion} # Añadir los datos a la lista de películas
-        peliculas.append(dada) # Añadir los datos a la lista de películas
 
+
+def añadirElpeli():
+        peliculas = openJSON("peliculas") # Cargar los datos de la lista de películas
+        input("Presione Enter para continuar...")
+
+        # Añade una nueva película a la lista de películas y retorna la película añadida.
+        # Mostrar la lista actual de películas
+        print("Lista actual de películas:")
+        if peliculas:
+                print(tabulate(peliculas, headers="keys", tablefmt="grid"))
+        else:
+                print("La lista está vacía.")
+
+        # Solicitar los datos de la nueva película
+        titulo = input("Título: ").strip()
+        director = input("Director: ").strip()
+        genero = input("Género: ").strip()
+        año = input("Año de publicación: ").strip() # Año de la película
+        descripcion = input("Descripción: ").strip()
+
+        # Crear un diccionario con los datos de la película
+        nueva_pelicula = {
+                "titulo": titulo,
+                "director": director,
+                "genero": genero,
+                "anio_publicacion": año,
+                "descripcion": descripcion
+        }
+
+        # Añadir la nueva película a la lista de películas
+        peliculas.append(nueva_pelicula)
+        return nueva_pelicula  # Retornar la película añadida
+
+        # Llamar a la función para añadir una película
+peliculaNueva = añadirElpeli()
+
+        # Mostrar la nueva película añadida en formato tabular
+print("\nNueva película añadida:")
+print(tabulate([peliculaNueva], headers="keys", tablefmt="grid"))
+
+        # Guardar los datos de la nueva película en un archivo JSON temporal
+with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:
+        json.dump(peliculaNueva, archivo_temp, indent=4)
+        print(f"\nArchivo JSON temporal creado en: {archivo_temp.name}")
 
 
 def ver_peliculas(): # Buscar una película en la lista de películas

@@ -98,6 +98,8 @@ def noloencuentro():
                                     break
                                 case _:
                                     print("obcion no valida")
+                    case 4:
+                        break
         except ValueError:
             print("Por favor, selecciona una opción válida.")
 

@@ -1,42 +1,42 @@
 [
         {
-        "titulo": "El Padrino",
-        "genero": "Crimen, Drama",
-        "director": "Francis Ford Coppola",
-        "año": 1972,
-        "valoracion": 9.2,
-        "descripcion": "La historia de la familia mafiosa Corleone en Estados Unidos."
-},
-{
-        "titulo": "Titanic",
-        "genero": "Romance, Drama",
-        "director": "James Cameron",
-        "año": 1997,
-        "valoracion": 7.9,
-        "descripcion": "Una historia de amor trágica a bordo del famoso barco hundido."
-},
-{
-        "titulo": "Avatar",
-        "genero": "Ciencia Ficción, Aventura",
-        "director": "James Cameron",
-        "año": 2009,
-        "valoracion": 7.8,
-        "descripcion": "Un exmarine explora un mundo alienígena y se involucra en un conflicto interplanetario."
-},
-{
-        "titulo": "Inception",
-        "genero": "Ciencia Ficción, Thriller",
-        "director": "Christopher Nolan",
-        "año": 2010,
-        "valoracion": 8.8,
-        "descripcion": "Un ladrón especializado en robar secretos del subconsciente se enfrenta a su misión más desafiante."
-},
-{
-        "titulo": "Interstellar",
-        "genero": "Ciencia Ficción, Drama",
-        "director": "Christopher Nolan",
-        "año": 2014,
-        "valoracion": 8.6,
-        "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad."
+                "titulo": "El Padrino",
+                "genero": "Crimen",
+                "director": "Francis Ford Coppola",
+                "año": 1972,
+                "valoracion": 9.2,
+                "descripcion": "La historia de la familia mafiosa Corleone en Estados Unidos."
+        },
+        {
+                "titulo": "Titanic",
+                "genero": "Romance ",
+                "director": "James Cameron",
+                "año": 1997,
+                "valoracion": 7.9,
+                "descripcion": "Una historia de amor trágica a bordo del famoso barco hundido."
+        },
+        {
+                "titulo": "Avatar",
+                "genero": "Ciencia Ficción ",
+                "director": "James Cameron",
+                "año": 2009,
+                "valoracion": 7.8,
+                "descripcion": "Un exmarine explora un mundo alienígena y se involucra en un conflicto interplanetario."
+        },
+        {
+                "titulo": "Inception",
+                "genero": "Ciencia Ficción",
+                "director": "Christopher Nolan",
+                "año": 2010,
+                "valoracion": 8.8,
+                "descripcion": "Un ladrón especializado en robar secretos del subconsciente se enfrenta a su misión más desafiante."
+        },
+        {
+                "titulo": "Interstellar",
+                "genero": "Ciencia Ficción",
+                "director": "Christopher Nolan",
+                "año": 2014,
+                "valoracion": 8.6,
+                "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad."
         }
 ]

@@ -50,7 +50,8 @@ def pelicas_():
                 amor.append(dicccionario)
         print(tabulate(    amor, headers="keys", tablefmt="grid"))
                 
-def masTarde ():
+def masTarde (): # para mostrar las peliculas por genero
+        
         pelicula = openJSON("peliculas")
         cansado = []
         for dicccionario in pelicula:

@@ -33,14 +33,22 @@ def buste():
 
 
 def buisr_musicar():
-    musica = openJSON("musica")
-    music()
-    print("¿Que cancion deseas buscar")
-    genero = input("genero: ")
-    for musica in musica:
-        if musica["genero"] == genero:
-            print(tabulate([genero],  headers="keys", tablefmt="grid" ))
-            break
+    musica = openJSON("musica")  # Asegúrate de que "musica.json" exista y tenga el formato adecuado.
+    music() # importa para mostrar una tabla donde muestre todas las musica por genero 
+    if not musica:
+        return
+    
+    print("¿Qué musica deseas buscar por género?")
+    genero = input("Género: ").strip()
+    
+    # Filtrar todas las películas que coincidan con el género indicado
+    musica_encontradas = [
+        musica for musica in musica if musica.get("genero", "").lower() == genero.lower()
+    ]
+    
+    if musica_encontradas:
+        print(f"Películas del género '{genero}':")
+        print(tabulate(musica_encontradas, headers="keys", tablefmt="grid"))
     else:
-        print("No se encontró el pelicula")
+        print(f"No se encontraron películas del género '{genero}'.")
 

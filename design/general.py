@@ -1,5 +1,5 @@
 from tabulate import tabulate
-from logic.Libros import añadirEle, ver_libros, Libros
+from logic.Libros import añadirEle, ver_libros
 from logic.musica import añadireleMusica, ver_musica
 from logic.pelicula import añadirElpeli, ver_peliculas
 from design.libros import buscar_libros, busca_auti, buscar_gene
@@ -13,18 +13,23 @@ def añadirElemento():
         print(añadir_emtos)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
-            if opcion == 1:
-                añadirEle()
-            elif opcion == 2:
-                añadirElpeli()
-            elif opcion == 3:
-                añadireleMusica()
-            elif opcion == 4:
-                break
-            else:
-                print("Por favor, selecciona una opción válida.")
+            match opcion:
+                case 1:
+                    añadirEle()
+                    
+                case 2:
+                    añadirElpeli()
+                    
+                case 3:
+                    añadireleMusica()
+                    
+                case 4:
+                    break
+                case _:
+                    print("Por favor, selecciona una opción válida.")
         except ValueError:
             print("Por favor, selecciona una opción válida.")
+
 
             
 def conti():
@@ -83,7 +88,7 @@ def noloencuentro():
                                 case 0 :
                                     break
                                 case _:
-                                    print("obcion no valida")
+                                    print("opcion no valida")
                     case 3:
                         while True:
                             meno = menu()

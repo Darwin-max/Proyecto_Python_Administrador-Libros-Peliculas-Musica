@@ -7,52 +7,51 @@ from formula.PARA_TODO import openJSON
 
 
 def añadireleMusica():
-        musica = openJSON("musica") # Cargar los datos de la lista de música
-        input("\nPresione Enter para continuar...")
-        """
-        Añade una nueva canción a la lista de música y retorna la canción añadida.
-        """
-        # Mostrar la lista actual de música
-        print("\nLista actual de música:")
-        if musica:
-                print(tabulate(musica, headers="keys", tablefmt="grid"))
-        else:
-                print("La lista está vacía.")
+        while True:
+                opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
+                if opc == '0' :                                 #este es if se esta utilizando por que quedava retornando de manera infita  agrgar un producto
+                        break     
+                musica = openJSON("musica") # Cargar los datos de la lista de música
+                input("\nPresione Enter para continuar...")
+                """
+                Añade una nueva canción a la lista de música y retorna la canción añadida.
+                """
+                # Mostrar la lista actual de música
+                if musica:
+                        print("Lista actual de música:")
+                        print(tabulate(musica, headers="keys", tablefmt="grid"))
+                else:
+                        print("La lista está vacía.")
 
-        # Solicitar los datos de la nueva canción
-        cancion = input("Canción: ").strip()
-        artista = input("Artista: ").strip()
-        genero = input("Género: ").strip()
-        año = input("Año: ").strip()
+                # Solicitar los datos de la nueva canción
+                cancion = input("Canción: ").strip()
+                artista = input("Artista: ").strip()
+                genero = input("Género: ").strip()
+                año = input("Año: ").strip()
 
-        # Crear un diccionario con los datos de la canción
-        nueva_cancion = {
-        "Canción": cancion,
-        "Artista": artista,
-        "Género": genero,
-        "Año": año
-        }
+                # Crear un diccionario con los datos de la canción
+                nueva_cancion = {
+                "Canción": cancion,
+                "Artista": artista,
+                "Género": genero,
+                "Año": año
+                }
 
-        # Añadir la nueva canción a la lista de música
-        musica.append(nueva_cancion)
-        return nueva_cancion  # Retornar la canción añadida
-
-# Llamar a la función para añadir una canción
-cancionNueva = añadireleMusica()
-
-# Mostrar la nueva canción añadida en formato tabular
-print("\nNueva canción añadida:")
-print(tabulate([cancionNueva], headers="keys", tablefmt="grid"))
-
-# Guardar los datos de la nueva canción en un archivo JSON temporal
-with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:
-        json.dump(cancionNueva, archivo_temp, indent=4)
-        print(f"\nArchivo JSON temporal creado en: {archivo_temp.name}")
+                
+                musica.append(nueva_cancion)    # Añadir la nueva canción a la lista de música
+                cancionNueva = añadireleMusica()        # Llamar a la función para añadir una canción
+                print("Nueva canción añadida:")         # Mostrar la nueva canción añadida en formato tabular
+                print(tabulate(cancionNueva, headers="keys", tablefmt="grid"))
+                with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:       # Guardar los datos de la nueva canción en un archivo JSON temporal
+                        json.dump(cancionNueva, archivo_temp, indent=4)
+                print(f"\nArchivo JSON temporal creado en: {archivo_temp.name}")
+                return nueva_cancion  # Retornar la canción añadida
 
 # este es el segundo punto del proyecto que es buscar una cancion en la lista de musica 
 # acordarse de que todavia me falta tabular bien las tablas de musica
 
 def ver_musica():  # Buscar una canción en la lista de música
+        musica = openJSON("musica") # Cargar los datos de la lista de música
         print(tabulate(musica, headers="keys", tablefmt="grid"))  # Mostrar la lista de música
         
 

@@ -6,39 +6,40 @@ from formula.PARA_TODO import *
 
 libros = openJSON("libros")  # Carga la lista de libros desde un archivo JSON
 def añadirEle():
-        
-        input("Presione Enter para continuar...")
-        """
-        Añade un nuevo libro a la colección y retorna el libro añadido.
-        """
-        # Mostrar la colección actual
-        print("Colección actual de libros:")
-        print(tabulate(libros, headers="keys", tablefmt="grid"))
-        # Solicitar datos al usuario
-        titulo = input("Título: ").strip()
-        autor = input("Autor: ").strip()
-        genero = input("Género: ").strip()
-        año = input("Año: ").strip()
-        descripcion = input("Descripción: ").strip()
-        # Crear el nuevo libro como un diccionario
-        nuevo_libro = {
-                "titulo": titulo,
-                "autor": autor,
-                "genero": genero,
-                "anio_publicacion": año,
-                "descripcion": descripcion
-        }
-        # Añadir el libro a la colección
-        libros.append(nuevo_libro)
-        return nuevo_libro              # Retornar el libro añadido
-libroNuevo = añadirEle()                # Llamar a la función para añadir un libro y guardar el resultado en `libroNuevo`
-print("Nuevo libro añadido:")           # Mostrar el nuevo libro añadido en formato tabular
-print(tabulate([libroNuevo], headers="keys", tablefmt="grid"))
+        while True:
+                opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
+                if opc == '0' :
+                        break     
+                # Mostrar la colección actual
+                print(tabulate(libros, headers="keys", tablefmt="grid"))
+                titulo = input("Título: ")                     # Solicitar datos al usuario
+                autor = input("Autor: ")
+                genero = input("Género: ")
+                año = input("Año: ")
+                descripcion = input("Descripción: ")
+                # Crear el nuevo libro como un diccionario
+                nuevo_libro = {
+                        "titulo": titulo,
+                        "autor": autor,
+                        "genero": genero,
+                        "anio_publicacion": año,
+                        "descripcion": descripcion
+                        }
+                        # Añadir el libro a la colección
+                libros.append(nuevo_libro)
+                # Retornar el libro añadido
+                libroNuevo = añadirEle()                # Llamar a la función para añadir un libro y guardar el resultado en `libroNuevo`
+                print(libroNuevo)
+                print("Nuevo libro añadido:")           # Mostrar el nuevo libro añadido en formato tabular
+                print(tabulate(libroNuevo, headers="keys", tablefmt="grid"))
 
-with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:
-        # Guardar los datos JSON en el archivo temporal
-        json.dump(libroNuevo, archivo_temp, indent=4)
-        print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
+                with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:
+                # Guardar los datos JSON en el archivo temporal
+                        json.dump(libroNuevo, archivo_temp, indent=4)
+                print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
+                return nuevo_libro 
+                
+
 
 def ver_libros():
         print(tabulate(libros, headers="keys", tablefmt="grid"))

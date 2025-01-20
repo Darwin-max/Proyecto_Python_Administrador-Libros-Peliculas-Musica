@@ -1,7 +1,7 @@
 
 from design.menus import menuPrincipal
 from logic.Libros import *
-from design.general import añadirElemento, conti, noloencuentro
+from design.general import añadirElemento, conti, noloencuentro, editele
 
 #     Muestra el menú principal y permite seleccionar entre las opciones 
 

@@ -1,12 +1,12 @@
-from tabulate import tabulate
+
 from logic.Libros import añadirEle, ver_libros
 from logic.musica import añadireleMusica, ver_musica
 from logic.pelicula import añadirElpeli, ver_peliculas
-from design.libros import buscar_libros, busca_auti, buscar_gene
+from design.libros import buscar_libros, busca_auti, buscar_gene, edit_titulo, edit_autor
 from design.menus import *
-from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas
+from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas, editer_titulo, edit_autorpeli
 from design.manu_de_buscar import menu
-from design.musica import buiscar_musica, buste,  buisr_musicar
+from design.musica import buiscar_musica, buste,  buisr_musicar, modificar_titulo, edit_autorMusi
 
 def añadirElemento():    
     while True:
@@ -113,26 +113,33 @@ def noloencuentro():
 
             
 
-# def editele ():
-#     while True:
-#         print(editarElemento)
-#         try:
-#             opcion = int(input("Ingrese el número de la opción: "))
-#             if opcion == 1:
-#                 pass
-#             elif opcion == 2:
-#                 pass
-#             elif opcion == 3:
-#                 pass
-#             elif opcion == 4:
-#                 pass
-#             elif opcion == 5:
-#                 break
-#             else:
-#                 print("Por favor, selecciona una opción válida.")
-#         except ValueError:
-#             print("Por favor, selecciona una opción válida.")          
-
+def editele ():
+    while True:
+        print(editarElemento)
+        try:
+            opcion = int(input("Ingrese el número de la opción: "))
+            match opcion:
+                case 1 :
+                    meno = menu()
+                    match meno:
+                        case 1:
+                            edit_titulo()
+                        case 2:
+                            editer_titulo()
+                        case 3:
+                            modificar_titulo()
+                case 2:
+                    meno = menu()
+                    match meno:
+                        case 1:
+                            edit_autor()
+                        case 2:
+                            edit_autorpeli()
+                        case 3:
+                            edit_autorMusi()
+            print("Por favor, seleccione una obcion valida")
+        except ValueError:
+            print("Por favor, seleccionar una opcion valida")
 # def eliminele():
 #     while True:
 #         print(eliminarElemento)

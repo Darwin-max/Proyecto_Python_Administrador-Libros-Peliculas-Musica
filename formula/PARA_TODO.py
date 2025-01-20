@@ -16,3 +16,5 @@ def openJSON(datos):
 def writeJSON(datos, diccionario):
     with open(f"data/{datos}.json", "w", encoding="utf-8") as file:
         json.dump(diccionario, file, indent=4)
+
+

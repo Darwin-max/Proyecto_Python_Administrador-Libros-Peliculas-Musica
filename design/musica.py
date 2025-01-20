@@ -1,6 +1,8 @@
+import json
 from tabulate import tabulate
 from logic.musica import musicadd, musicos, music
 from formula.PARA_TODO import openJSON
+import tempfile
 
 
 
@@ -43,7 +45,7 @@ def buisr_musicar():
     
     # Filtrar todas las películas que coincidan con el género indicado
     musica_encontradas = [
-        musica for musica in musica if musica.get("genero", "").lower() == genero.lower()
+        musica for musica in musica if musica.get("genero", "").lower() == genero.lower()  
     ]
     
     if musica_encontradas:
@@ -52,3 +54,56 @@ def buisr_musicar():
     else:
         print(f"No se encontraron películas del género '{genero}'.")
 
+def modificar_titulo():
+        musicas = openJSON("libros")
+        print (tabulate(musicas, headers="keys", tablefmt="grid"))
+        if not musicas:
+            print("No hay canciones disponibles para editar.")
+            return
+
+        print("¿Qué cancion deseas editar?")
+        titulo = input("Título: ").strip()
+
+        for musica in musicas:
+            if musica.get("titulo", "").lower() == titulo.lower():
+                print("cancion encontrado:")
+                print(tabulate(musicas, headers="keys", tablefmt="grid"))
+                nuevo_titulo = input("Nuevo título: ").strip()
+                musica["titulo"] = nuevo_titulo
+                print("Título actualizado.")
+                break
+            else:
+                print(f"No se encontro un libro con el título '{titulo}'.") 
+                #guardar el json en un archivo temporal para pode guardarlo en el 7 punto de guardar guardar guardar
+        with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(musica, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+        print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+def edit_autorMusi ():
+    musicas = openJSON("peliculas")
+    print (tabulate(musica, headers="keys", tablefmt="grid"))
+    if not musica:
+        print("No hay cansiones disponibles para editar.")
+        return
+
+    print("¿Qué cansion deseas editar?")
+    artista = input("Autor: ").strip()
+
+    for musica in musicas:
+        if musica.get("artista", "").lower() == artista.lower():
+            print("Cancion encontrada:")
+            print(tabulate(musicas, headers="keys", tablefmt="grid"))
+            nuevo_artista = input("Nuevo artista: ").strip()
+            musica["artista"] = nuevo_artista
+            print("Artsita actualizado.")
+            break
+        else:
+            print(f"No se encontro un cansion con ese artista'{artista}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(musica, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")

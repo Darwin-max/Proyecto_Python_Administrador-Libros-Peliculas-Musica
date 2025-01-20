@@ -1,4 +1,6 @@
 
+import json
+import tempfile
 from tabulate import tabulate
 from logic.Libros import Libros , Libr, nose
 from formula.PARA_TODO import openJSON
@@ -52,7 +54,62 @@ def buscar_gene():
     genero = input("genero: ")
     for  Libros in Libros :
         if Libros ["genero"] == genero:
-            print(tabulate( [   Libros], headers="keys", tablefmt="grid"))
+            print(tabulate(    Libros, headers="keys", tablefmt="grid"))
             break
     else:
         print("No se encontró el libro")
+
+def edit_titulo ():
+    libros = openJSON("libros")
+    print (tabulate(libros, headers="keys", tablefmt="grid"))
+    if not libros:
+        print("No hay libros disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    titulo = input("Título: ").strip()
+
+    for libro in libros:
+        if libro.get("titulo", "").lower() == titulo.lower():
+            print("Libro encontrado:")
+            print(tabulate(libros, headers="keys", tablefmt="grid"))
+            nuevo_titulo = input("Nuevo título: ").strip()
+            libro["titulo"] = nuevo_titulo
+            print("Título actualizado.")
+            break
+        else:
+            print(f"No se encontro un libro con el título '{titulo}'.") 
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(libro, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+
+def edit_autor ():
+    libros = openJSON("libros")
+    print (tabulate(libros, headers="keys", tablefmt="grid"))
+    if not libros:
+        print("No hay libros disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    autor = input("Autor: ").strip()
+
+    for libro in libros:
+        if libro.get("autor", "").lower() == autor.lower():
+            print("Libro encontrado:")
+            print(tabulate(libros, headers="keys", tablefmt="grid"))
+            nuevo_autor = input("Nuevo autor: ").strip()
+            libro["autor"] = nuevo_autor
+            print("autor actualizado.")
+            break
+        else:
+            print(f"No se encontro un libro con ese autor '{autor}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(libro, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+

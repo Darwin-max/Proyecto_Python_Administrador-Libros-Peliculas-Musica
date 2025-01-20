@@ -80,3 +80,4 @@ def nose():
                 diccionario.pop("titulo")
                 juli.append(diccionario)
         print(tabulate(juli, headers="keys", tablefmt="grid"))
+

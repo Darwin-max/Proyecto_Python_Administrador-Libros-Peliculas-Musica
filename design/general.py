@@ -2,11 +2,11 @@
 from logic.Libros import añadirEle, ver_libros
 from logic.musica import añadireleMusica, ver_musica
 from logic.pelicula import añadirElpeli, ver_peliculas
-from design.libros import buscar_libros, busca_auti, buscar_gene, edit_titulo, edit_autor
+from design.libros import buscar_libros, busca_auti, buscar_gene, edit_titulo, edit_autor, edit_generoLibro, edit_valoraLibro
 from design.menus import *
-from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas, editer_titulo, edit_autorpeli
+from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas, editer_titulo, edit_autorpeli, edit_peli
 from design.manu_de_buscar import menu
-from design.musica import buiscar_musica, buste,  buisr_musicar, modificar_titulo, edit_autorMusi
+from design.musica import buiscar_musica, buste,  buisr_musicar, modificar_titulo, edit_autorMusi, edit_genroMusi, edit_genroMusi, edit_valorMusi
 
 def añadirElemento():    
     while True:
@@ -128,6 +128,10 @@ def editele ():
                             editer_titulo()
                         case 3:
                             modificar_titulo()
+                        case 0:
+                            break
+                        case _:
+                            print("opcion no valida")
                 case 2:
                     meno = menu()
                     match meno:
@@ -137,9 +141,43 @@ def editele ():
                             edit_autorpeli()
                         case 3:
                             edit_autorMusi()
+                        case 0:
+                            break
+                        case _:
+                            print("opcion no valida")
+
+                case 3:
+                    meno = menu()
+                    match meno:
+                        case 1:
+                            edit_generoLibro()
+                        case 2:
+                            edit_peli()
+                        case 3:
+                            edit_genroMusi()
+                        case 0:
+                            break
+                        case _:
+                            print("opcion no valida")
+                case 4:
+                    meno = menu()
+                    match meno:
+                        case 1:
+                            edit_valoraLibro()
+                        case 2:
+                            edit_genroMusi()
+                        case 3:
+                            edit_valorMusi()
+                        case 0:
+                            break
+                        case _:
+                            print("opcion no valida")
+                case 5:
+                    break
             print("Por favor, seleccione una obcion valida")
         except ValueError:
             print("Por favor, seleccionar una opcion valida")
+
 # def eliminele():
 #     while True:
 #         print(eliminarElemento)

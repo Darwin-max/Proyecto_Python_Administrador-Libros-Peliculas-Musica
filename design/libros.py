@@ -113,3 +113,57 @@ def edit_autor ():
 
     print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
 
+def edit_generoLibro ():
+    libros = openJSON("libros")
+    print (tabulate(libros, headers="keys", tablefmt="grid"))
+    if not libros:
+        print("No hay libros disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    Genero = input("Genero: ").strip()
+
+    for libro in libros:
+        if libro.get("genero", "").lower() == Genero.lower():
+            print("Libro encontrado:")
+            print(tabulate(libros, headers="keys", tablefmt="grid"))
+            nuevo_autor = input("Nuevo genero: ").strip()
+            libro["genero"] = nuevo_autor
+            print("genero actualizado.")
+            break
+        else:
+            print(f"No se encontro un libro con ese genero '{Genero}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(libro, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+def edit_valoraLibro ():
+    libros = openJSON("libros")
+    print (tabulate(libros, headers="keys", tablefmt="grid"))
+    if not libros:
+        print("No hay libros disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    valo = input("Valoracion: ").strip()
+
+    for libro in libros:
+        if libro.get("valoracion", "").lower() == valo.lower():
+            print("Libro encontrado:")
+            print(tabulate(libros, headers="keys", tablefmt="grid"))
+            nuevo_valor = input("Nueva valoracion: ").strip()
+            libro["valoracion"] = nuevo_valor
+            print("valoracion actualizado.")
+            break
+        else:
+            print(f"No se encontro un libro con esa valoracion '{valo}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(libro, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+

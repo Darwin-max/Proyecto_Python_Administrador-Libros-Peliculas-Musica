@@ -1,34 +1,42 @@
 [
-      {
-        "cancion": "La Bicicleta",
-        "cantante": "Carlos Vives y Shakira",
-        "genero": "Vallenato/Pop",
-        "disco": "Vives"
-      },
-      {
-        "cancion": "Eres",
-        "cantante": "Cafe Tacvba",
-        "genero": "Rock Alternativo",
-        "disco": "Cuatro Caminos"
-      },
-      {
-        "cancion": "Mi Gente",
-        "cantante": "J Balvin",
-        "genero": "Reguetón",
-        "disco": "Vibras"
-      },
-      {
-        "cancion": "Clavado en un Bar",
-        "cantante": "Maná",
-        "genero": "Rock Latino",
-        "disco": "Sueños Líquidos"
-      },
-      {
-        "cancion": "Hips Don't Lie",
-        "cantante": "Shakira",
-        "genero": "Pop/Reguetón",
-        "disco": "Oral Fixation, Vol. 2"
-      }
-]    
-  
-  
+  {
+    "id": 1,
+    "cancion": "La Bicicleta",
+    "cantante": "Carlos Vives y Shakira",
+    "genero": "Vallenato/Pop",
+    "disco": "Vives",
+    "valoracion": 4.5
+  },
+  {
+    "id": 2,
+    "cancion": "Eres",
+    "cantante": "Cafe Tacvba",
+    "genero": "Rock Alternativo",
+    "disco": "Cuatro Caminos",
+    "valoracion": 4.7
+  },
+  {
+    "id": 3,
+    "cancion": "Mi Gente",
+    "cantante": "J Balvin",
+    "genero": "Reguetón",
+    "disco": "Vibras",
+    "valoracion": 4.3
+  },
+  {
+    "id": 4,
+    "cancion": "Clavado en un Bar",
+    "cantante": "Maná",
+    "genero": "Rock Latino",
+    "disco": "Sueños Líquidos",
+    "valoracion": 4.6
+  },
+  {
+    "id": 5,
+    "cancion": "Hips Don't Lie",
+    "cantante": "Shakira",
+    "genero": "Pop/Reguetón",
+    "disco": "Oral Fixation, Vol. 2",
+    "valoracion": 4.8
+  }
+]

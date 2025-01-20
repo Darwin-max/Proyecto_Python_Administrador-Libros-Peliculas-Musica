@@ -109,3 +109,57 @@ def edit_autorpeli ():
             temp_file_path = temp_file.name
 
     print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+def edit_peli ():
+    peliculas = openJSON("peliculas")
+    print (tabulate(peliculas, headers="keys", tablefmt="grid"))
+    if not peliculas:
+        print("No hay peliculas disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    Genero = input("Genero: ").strip()
+
+    for pelicula in peliculas:
+        if pelicula.get("genero", "").lower() == Genero.lower():
+            print("Pelicula encontrada:")
+            print(tabulate(peliculas, headers="keys", tablefmt="grid"))
+            nuevo_director = input("Nuevo genero: ").strip()
+            peliculas["genero"] = nuevo_director
+            print("director actualizado.")
+            break
+        else:
+            print(f"No se encontro un pelicula con el ese genero '{Genero}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(peliculas, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+def edit_valopeli ():
+    peliculas = openJSON("peliculas")
+    print (tabulate(peliculas, headers="keys", tablefmt="grid"))
+    if not peliculas:
+        print("No hay peliculas disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    valo = input("Valoracion: ").strip()
+
+    for pelicula in peliculas:
+        if pelicula.get("valoracion", "").lower() == valo.lower():
+            print("Pelicula encontrada:")
+            print(tabulate(peliculas, headers="keys", tablefmt="grid"))
+            nuevo_valo = input("Nueva valoracion: ").strip()
+            peliculas["valoracion"] = nuevo_valo
+            print("Valoracion actualizado.")
+            break
+        else:
+            print(f"No se encontro un pelicula con el ese valoracion '{valo}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(peliculas, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")

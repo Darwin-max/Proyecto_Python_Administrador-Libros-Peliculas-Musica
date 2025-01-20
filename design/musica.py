@@ -67,7 +67,7 @@ def modificar_titulo():
         for musica in musicas:
             if musica.get("titulo", "").lower() == titulo.lower():
                 print("cancion encontrado:")
-                print(tabulate(musicas, headers="keys", tablefmt="grid"))
+                print(tabulate(musica, headers="keys", tablefmt="grid"))
                 nuevo_titulo = input("Nuevo título: ").strip()
                 musica["titulo"] = nuevo_titulo
                 print("Título actualizado.")
@@ -101,6 +101,61 @@ def edit_autorMusi ():
             break
         else:
             print(f"No se encontro un cansion con ese artista'{artista}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(musica, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+def edit_genroMusi ():
+    musicas = openJSON("peliculas")
+    print (tabulate(musica, headers="keys", tablefmt="grid"))
+    if not musica:
+        print("No hay cansiones disponibles para editar.")
+        return
+
+    print("¿Qué cansion deseas editar?")
+    genero = input("Genero: ").strip()
+
+    for musica in musicas:
+        if musica.get("genero", "").lower() == genero.lower():
+            print("Cancion encontrada:")
+            print(tabulate(musicas, headers="keys", tablefmt="grid"))
+            nuevo_genro = input("Nuevo genero: ").strip()
+            musica["genero"] = nuevo_genro
+            print("Genero actualizado.")
+            break
+        else:
+            print(f"No se encontro un cansion con ese genero'{genero}'.") 
+        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
+            json.dump(musica, temp_file, indent=4)
+            temp_file_path = temp_file.name
+
+    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+
+def edit_valorMusi ():
+    musicas = openJSON("peliculas")
+    print (tabulate(musica, headers="keys", tablefmt="grid"))
+    if not musica:
+        print("No hay cansiones disponibles para editar.")
+        return
+
+    print("¿Qué cansion deseas editar?")
+    valo = input("Valoracion: ").strip()
+
+    for musica in musicas:
+        if musica.get("valoracion", "").lower() == valo.lower():
+            print("Cancion encontrada:")
+            print(tabulate(musicas, headers="keys", tablefmt="grid"))
+            nuevo_genro = input("Nuevo valoracion: ").strip()
+            musica["valoracion"] = nuevo_genro
+            print("Valoracion actualizado.")
+            break
+        else:
+            print(f"No se encontro un cansion con esa valoracion'{valo}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
     with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
             json.dump(musica, temp_file, indent=4)

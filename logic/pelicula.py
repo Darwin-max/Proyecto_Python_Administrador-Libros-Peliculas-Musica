@@ -11,7 +11,7 @@ def validar_numero(mensaje):
                         print("Por favor, ingrese un número válido.")
 
 
-def añadirElpeli():
+def añadirElpeli(ll):
         while True:
                 opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
                 if opc == '0' :
@@ -50,15 +50,11 @@ def añadirElpeli():
                         "descripcion": descripcion,
                         "valoracion": valoracion
                 }
-
-                # Añadir la nueva película a la lista de películas
-                peliculas.append(nueva_pelicula)
-                peliculaNueva = añadirElpeli()  # Llamar a la función para añadir una película
-                print("Nueva película añadida:")      # Mostrar la nueva película añadida en formato tabular
-                print(tabulate(peliculaNueva, headers="keys", tablefmt="grid"))
+                ll.append(nueva_pelicula)
+                return nueva_pelicula
+                # Retornar el libro añadido
                 
 
-                return nueva_pelicula  # Retornar la película añadida
 
 def ver_peliculas(): # Buscar una película en la lista de películas
         peliculas =  openJSON("peliculas")

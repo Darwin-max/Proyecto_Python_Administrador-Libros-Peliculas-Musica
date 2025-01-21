@@ -1,7 +1,6 @@
 from tabulate import tabulate
 from logic.Libros import Libros , Libr, nose
-from formula.PARA_TODO import openJSON
-
+from formula.PARA_TODO import *
 
 
 def buscar_libros():
@@ -73,6 +72,7 @@ def edit_titulo ():
             nuevo_titulo = input("Nuevo título: ").strip()
             libro["titulo"] = nuevo_titulo
             print("Título actualizado.")
+            writeJSON("libros", libros)
             break
         else:
             print(f"No se encontro un libro con el título '{titulo}'.") 
@@ -96,6 +96,7 @@ def edit_autor ():
             nuevo_autor = input("Nuevo autor: ").strip()
             libro["autor"] = nuevo_autor
             print("autor actualizado.")
+            writeJSON("libros", libros)
             break
         else:
             print(f"No se encontro un libro con ese autor '{autor}'.") 
@@ -118,6 +119,7 @@ def edit_generoLibro ():
             nuevo_autor = input("Nuevo genero: ").strip()
             libro["genero"] = nuevo_autor
             print("genero actualizado.")
+            writeJSON("libros", libros)
             break
         else:
             print(f"No se encontro un libro con ese genero '{Genero}'.") 
@@ -141,6 +143,7 @@ def edit_valoraLibro ():
             nuevo_valor = input("Nueva valoracion: ").strip()
             libro["valoracion"] = nuevo_valor
             print("valoracion actualizado.")
+            writeJSON("libros", libros)
             break
         else:
             print(f"No se encontro un libro con esa valoracion '{valo}'.") 

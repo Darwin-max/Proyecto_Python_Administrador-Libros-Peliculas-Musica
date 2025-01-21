@@ -15,7 +15,7 @@ if __name__ == '__main__':
          opcion = int(input("Ingrese el número de la opción: "))
 
          if opcion == 1:
-            añadirElemento(libro)
+            añadirElemento(libro, pelicula, musica)
          elif opcion == 2:
             conti()
          elif opcion == 3:

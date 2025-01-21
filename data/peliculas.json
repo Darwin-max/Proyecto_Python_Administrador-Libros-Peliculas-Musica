@@ -1,47 +1,47 @@
 [
-        {
-                "id": 1,
-                "titulo": "El Padrino",
-                "genero": "Crimen",
-                "director": "Francis Ford Coppola",
-                "año": 1972,
-                "valoracion": 9.2,
-                "descripcion": "La historia de la familia mafiosa Corleone en Estados Unidos."
-        },
-        {
-                "id": 2,
-                "titulo": "Titanic",
-                "genero": "Romance ",
-                "director": "James Cameron",
-                "año": 1997,
-                "valoracion": 7.9,
-                "descripcion": "Una historia de amor trágica a bordo del famoso barco hundido."
-        },
-        {
-                "id": 3,
-                "titulo": "Avatar",
-                "genero": "Ciencia Ficción ",
-                "director": "James Cameron",
-                "año": 2009,
-                "valoracion": 7.8,
-                "descripcion": "Un exmarine explora un mundo alienígena y se involucra en un conflicto interplanetario."
-        },
-        {
-                "id": 4,
-                "titulo": "Inception",
-                "genero": "Ciencia Ficción",
-                "director": "Christopher Nolan",
-                "año": 2010,
-                "valoracion": 8.8,
-                "descripcion": "Un ladrón especializado en robar secretos del subconsciente se enfrenta a su misión más desafiante."
-        },
-        {
-                "id": 5,
-                "titulo": "Interstellar",
-                "genero": "Ciencia Ficción",
-                "director": "Christopher Nolan",
-                "año": 2014,
-                "valoracion": 8.6,
-                "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad."
-        }
+    {
+        "id": 1,
+        "titulo": "El Padrino",
+        "genero": "Crimen",
+        "director": "Francis Ford Coppola",
+        "a\u00f1o": 1972,
+        "valoracion": 9.2,
+        "descripcion": "La historia de la familia mafiosa Corleone en Estados Unidos."
+    },
+    {
+        "id": 2,
+        "titulo": "Titanic",
+        "genero": "Romance ",
+        "director": "James Cameron",
+        "a\u00f1o": 1997,
+        "valoracion": 7.9,
+        "descripcion": "Una historia de amor tr\u00e1gica a bordo del famoso barco hundido."
+    },
+    {
+        "id": 3,
+        "titulo": "Avatar",
+        "genero": "Ciencia Ficci\u00f3n ",
+        "director": "James Cameron",
+        "a\u00f1o": 2009,
+        "valoracion": 7.8,
+        "descripcion": "Un exmarine explora un mundo alien\u00edgena y se involucra en un conflicto interplanetario."
+    },
+    {
+        "id": 4,
+        "titulo": "Inception",
+        "genero": "Ciencia Ficci\u00f3n",
+        "director": "Christopher Nolan",
+        "a\u00f1o": 2010,
+        "valoracion": 8.8,
+        "descripcion": "Un ladr\u00f3n especializado en robar secretos del subconsciente se enfrenta a su misi\u00f3n m\u00e1s desafiante."
+    },
+    {
+        "id": 5,
+        "titulo": "Interstellar",
+        "genero": "Ciencia Ficci\u00f3n",
+        "director": "Christopher Nolan",
+        "a\u00f1o": 2014,
+        "valoracion": 8.6,
+        "descripcion": "Un grupo de astronautas viaja a trav\u00e9s de un agujero de gusano en busca de un nuevo hogar para la humanidad."
+    }
 ]

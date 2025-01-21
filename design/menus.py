@@ -92,7 +92,7 @@ Selecciona una opción (1-5):
 # ===========================================
 # Selecciona una opción (1-4):
 # """
-guardarCargar = """===========================================
+guardarCargarDesign = """===========================================
         Guardar y Cargar Colección
 ===========================================
 ¿Qué deseas hacer?

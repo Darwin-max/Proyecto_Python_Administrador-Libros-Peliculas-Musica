@@ -1,6 +1,6 @@
 from tabulate import tabulate
 from logic.pelicula import  peliculas_ , pelicas_, masTarde
-from formula.PARA_TODO import openJSON
+from formula.PARA_TODO import *
 
 def buiscar_pelicula():
     peliculas = openJSON("peliculas")  # Carga la lista de libros desde el archivo JSON
@@ -11,6 +11,7 @@ def buiscar_pelicula():
     for peliculas in peliculas:
         if peliculas["titulo"] == titulo:
             print(tabulate([peliculas], headers="keys", tablefmt="grid"))
+            writeJSON("pelicula", peliculas)
             break
     else:
         print("No se encontró el pelicula")
@@ -70,6 +71,7 @@ def editer_titulo():
             nuevo_titulo = input("Nuevo título: ").strip()
             peliculas["titulo"] = nuevo_titulo
             print("Titulo actualizado.")
+            writeJSON("pelicula", peliculas)
             break
         else:
             print(f"No se encontro un libro con el titulo'{peliculas}'")
@@ -92,6 +94,7 @@ def edit_autorpeli ():
             nuevo_director = input("Nuevo director: ").strip()
             peliculas["director"] = nuevo_director
             print("director actualizado.")
+            writeJSON("pelicula", peliculas)
             break
         else:
             print(f"No se encontro un pelicula con el ese autor '{Director}'.") 
@@ -114,6 +117,7 @@ def edit_peli ():
             nuevo_director = input("Nuevo genero: ").strip()
             peliculas["genero"] = nuevo_director
             print("director actualizado.")
+            writeJSON("pelicula", peliculas)
             break
         else:
             print(f"No se encontro un pelicula con el ese genero '{Genero}'.") 
@@ -137,6 +141,7 @@ def edit_valopeli ():
             nuevo_valo = input("Nueva valoracion: ").strip()
             peliculas["valoracion"] = nuevo_valo
             print("Valoracion actualizado.")
+            writeJSON("pelicula", peliculas)
             break
         else:
             print(f"No se encontro un pelicula con el ese valoracion '{valo}'.") 

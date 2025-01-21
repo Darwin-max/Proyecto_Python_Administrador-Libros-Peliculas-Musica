@@ -11,7 +11,7 @@ def validar_numero(mensaje):
                 except ValueError:
                         print("Por favor, ingrese un número válido.")
 
-def añadireleMusica():
+def añadireleMusica(ll):
         while True:
                 opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
                 if opc == '0' :                                 #este es if se esta utilizando por que quedava retornando de manera infita  agrgar un producto
@@ -48,12 +48,7 @@ def añadireleMusica():
                 "Año": año,
                 "valoracion": valoracion
                 }
-                musica.append(nueva_cancion)    # Añadir la nueva canción a la lista de música
-                cancionNueva = añadireleMusica()        # Llamar a la función para añadir una canción
-                print("Nueva canción añadida:")         # Mostrar la nueva canción añadida en formato tabular
-                print(tabulate(cancionNueva, headers="keys", tablefmt="grid"))
-                
-
+                ll.append(nueva_cancion)
                 return nueva_cancion  # Retornar la canción añadida
 
 # este es el segundo punto del proyecto que es buscar una cancion en la lista de musica 

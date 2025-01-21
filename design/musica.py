@@ -1,7 +1,7 @@
 
 from tabulate import tabulate
 from logic.musica import musicadd, musicos, music
-from formula.PARA_TODO import openJSON
+from formula.PARA_TODO import *
 
 
 
@@ -55,7 +55,7 @@ def buisr_musicar():
         print(f"No se encontraron películas del género '{genero}'.")
 
 def modificar_titulo():
-        musicas = openJSON("libros")
+        musicas = openJSON("musica")
         print (tabulate(musicas, headers="keys", tablefmt="grid"))
         if not musicas:
             print("No hay canciones disponibles para editar.")
@@ -71,6 +71,7 @@ def modificar_titulo():
                 nuevo_titulo = input("Nuevo título: ").strip()
                 musica["titulo"] = nuevo_titulo
                 print("Título actualizado.")
+                writeJSON("musica", musicas)
                 break
             else:
                 print(f"No se encontro un libro con el título '{titulo}'.") 
@@ -79,7 +80,7 @@ def modificar_titulo():
 
 
 def edit_autorMusi ():
-    musicas = openJSON("peliculas")
+    musicas = openJSON("musica")
     print (tabulate(musica, headers="keys", tablefmt="grid"))
     if not musica:
         print("No hay cansiones disponibles para editar.")
@@ -95,6 +96,7 @@ def edit_autorMusi ():
             nuevo_artista = input("Nuevo artista: ").strip()
             musica["artista"] = nuevo_artista
             print("Artsita actualizado.")
+            writeJSON("musica", musicas )
             break
         else:
             print(f"No se encontro un cansion con ese artista'{artista}'.") 
@@ -104,7 +106,7 @@ def edit_autorMusi ():
 
 
 def edit_genroMusi ():
-    musicas = openJSON("peliculas")
+    musicas = openJSON("musica")
     print (tabulate(musica, headers="keys", tablefmt="grid"))
     if not musica:
         print("No hay cansiones disponibles para editar.")
@@ -120,6 +122,7 @@ def edit_genroMusi ():
             nuevo_genro = input("Nuevo genero: ").strip()
             musica["genero"] = nuevo_genro
             print("Genero actualizado.")
+            writeJSON("musica", musica)
             break
         else:
             print(f"No se encontro un cansion con ese genero'{genero}'.") 
@@ -128,7 +131,7 @@ def edit_genroMusi ():
 
 
 def edit_valorMusi ():
-    musicas = openJSON("peliculas")
+    musicas = openJSON("musica")
     print (tabulate(musica, headers="keys", tablefmt="grid"))
     if not musica:
         print("No hay cansiones disponibles para editar.")
@@ -144,6 +147,7 @@ def edit_valorMusi ():
             nuevo_genro = input("Nuevo valoracion: ").strip()
             musica["valoracion"] = nuevo_genro
             print("Valoracion actualizado.")
+            writeJSON("musica", musicas)
             break
         else:
             print(f"No se encontro un cansion con esa valoracion'{valo}'.") 

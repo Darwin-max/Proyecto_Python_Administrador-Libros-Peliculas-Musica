@@ -13,7 +13,8 @@ def validar_numero(mensaje):
                         print("Por favor, ingrese un número válido.")
 
 libros = openJSON("libros")  # Carga la lista de libros desde un archivo JSON
-def añadirEle(libro):
+
+def añadirEle(ll):
         while True:
                 opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
                 if opc == '0' :
@@ -43,13 +44,10 @@ def añadirEle(libro):
                         "valoracion" : valoracion
                         }
                         # Añadir el libro a la colección
-                libro.append(nuevo_libro)
+                ll.append(nuevo_libro)
+                return nuevo_libro
                 # Retornar el libro añadido
-                libroNuevo = añadirEle()                # Llamar a la función para añadir un libro y guardar el resultado en `libroNuevo`
-                print(libroNuevo)
-                print("Nuevo libro añadido:")           # Mostrar el nuevo libro añadido en formato tabular
-                print(tabulate(libroNuevo, headers="keys", tablefmt="grid"))
-                return nuevo_libro 
+                
                 
 
 

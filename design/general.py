@@ -10,7 +10,7 @@ from design.musica import buiscar_musica, buste,  buisr_musicar, modificar_titul
 from formula.PARA_TODO import *
 
 
-def añadirElemento(libro):    
+def añadirElemento(libro, peliculas, musica):    
     while True:
         print(añadir_emtos)
         try:
@@ -20,10 +20,10 @@ def añadirElemento(libro):
                     añadirEle(libro)
                     
                 case 2:
-                    añadirElpeli()
+                    añadirElpeli(peliculas)
                     
                 case 3:
-                    añadireleMusica()
+                    añadireleMusica(musica)
                     
                 case 4:
                     break
@@ -222,12 +222,15 @@ def saveColection(libro, pelicula, musica):
     book.extend(libro)
     music.extend(musica)
     movie.extend(pelicula)
+    writeJSON("libros", book)
+    writeJSON("Musica", music)
+    writeJSON("peliculas", movie)
     print('hecho')
     input('Press Enter...')
 
 def guardarcargar(libro, pelicula, musica):
     while True:
-        print(guardarCargar)
+        print(guardarCargarDesign)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
             if opcion == 1:

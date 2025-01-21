@@ -176,7 +176,7 @@ def editele ():
                             print("opcion no valida")
                 case 5:
                     break
-            print("Por favor, seleccione una obcion valida")
+                    
         except ValueError:
             print("Por favor, seleccionar una opcion valida")
 

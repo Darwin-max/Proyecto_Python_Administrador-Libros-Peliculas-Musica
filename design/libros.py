@@ -189,7 +189,7 @@ def eli_id ():
 
 
 
-def verEle_categoriaLibr ():
+def verEle_categoriaLibr (kk):
     libros = openJSON("libros")  # Carga la lista de libros desde el archivo JSON
     catego()  # Llama a una función para mostrar información (si la tienes definida)
     # Verifica si hay libros cargados
@@ -198,16 +198,17 @@ def verEle_categoriaLibr ():
         return
     
     print("¿Qué libro deseas buscar?")  # Solicita el título al usuario
-    titulo = input("categoria: ").strip()  # Elimina espacios al inicio y final
+    cate = input("categoria: ").strip()  # Elimina espacios al inicio y final
     # Busca libros que coincidan con el título
     libros_buscarti = [
-        libro for libro in libros if libro.get("titulo", "").lower() == titulo.lower()
+        libro for libro in libros if libros.get("categoria", "").lower() == cate.lower()
     ]
     # Imprime el resultado de la búsqueda
     if libros_buscarti:
-        print(f"Libros encontrados con el título '{titulo}':")
+        print(f"Libros encontrados con el título '{cate}':")
         print(tabulate(libros_buscarti, headers="keys", tablefmt="grid"))
     else:
-        print(f"No se encontraron libros con el título '{titulo}'.")
+        print(f"No se encontraron libros con el título '{cate}'.")
 
 
+    kk.append(libros_buscarti)

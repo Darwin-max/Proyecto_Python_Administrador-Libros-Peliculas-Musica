@@ -113,6 +113,7 @@ def misiqu():
                 diccionario.pop("anio_publicacion")
                 diccionario.pop("genero")
                 diccionario.pop("autor")
+                diccionario.pop("valoracion")
         tatiana.append(diccionario)
         print(tabulate(tatiana, headers="keys", tablefmt="grid"))
 

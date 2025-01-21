@@ -194,14 +194,28 @@ def eliminar_idMusi():
             else:
                 print(f"No se encontro un libro con el título '{id}'.") 
 
-def buiscar_catemusica():
+def buiscar_catemusica(kk):
     musica = openJSON("musica")
-    misiqu()
-    print("¿Qué categoria deseas buscar?")
-    cancion = input("Categoria: ")
-    for musica in musica:
-        if musica["categoria"] == cancion:
-            print(tabulate([musica], headers="keys", tablefmt="grid"))
-            break
+
+    musica = openJSON("libros")  # Carga la lista de libros desde el archivo JSON
+    misiqu()  # Llama a una función para mostrar información (si la tienes definida)
+    # Verifica si hay libros cargados
+    if not musica:
+        print("No hay libros disponibles para buscar.")
+        return
+    
+    print("¿Qué libro deseas buscar?")  # Solicita el título al usuario
+    titulo = input("categoria: ").strip()  # Elimina espacios al inicio y final
+    # Busca libros que coincidan con el título
+    musica_buscarti = [
+        musicas for musicas in musica if musica.get("categoria", "").lower() == titulo.lower()
+    ]
+    # Imprime el resultado de la búsqueda
+    if musica_buscarti:
+        print(f"Libros encontrados con el título '{titulo}':")
+        print(tabulate(musica_buscarti, headers="keys", tablefmt="grid"))
     else:
-        print("No se encontró la pelicula")
+        print(f"No se encontraron libros con el título '{titulo}'.")
+
+
+    kk.append(musica_buscarti)

@@ -113,6 +113,7 @@ def cantio():
         libros = openJSON("libros")
         tatiana = []
         for diccionario in libros:
+                diccionario.pop("valoracion")
                 diccionario.pop("titulo")
                 diccionario.pop("id")
                 diccionario.pop("descripcion")  

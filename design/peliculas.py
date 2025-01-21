@@ -182,15 +182,43 @@ def elim_Idpelicul():
         else:
             print(f"No se encontro un libro con el titulo'{peliculas}'")
 
-def buiscar_categoriaPeli():
+def buiscar_categoriaPeli(kk):
     peliculas = openJSON("peliculas")  # Carga la lista de libros desde el archivo JSON
     cantio() # Llama a una función para mostrar información (si la tienes definida)    
     print("¿Qué pelicula deseas buscar?")# Solicita el título al usuario
-    titulo = input("Categoria: ")  # Elimina espacios al inicio y final
+    catego = input("Categoria: ")  # Elimina espacios al inicio y final
+
+
     for peliculas in peliculas:
-        if peliculas["categoria"] == titulo:
-            print(tabulate([peliculas], headers="keys", tablefmt="grid"))
+        if peliculas["categoria"] == catego:
+            print(tabulate(peliculas, headers="keys", tablefmt="grid"))
             writeJSON("pelicula", peliculas)
             break
     else:
         print("No se encontró el pelicula")
+
+    
+
+
+
+    cantio()  # Llama a una función para mostrar información (si la tienes definida)
+    # Verifica si hay libros cargados
+    if not peliculas:
+        print("No hay libros disponibles para buscar.")
+        return
+    
+    print("¿Qué libro deseas buscar?")  # Solicita el título al usuario
+    titulo = input("categoria: ").strip()  # Elimina espacios al inicio y final
+    # Busca libros que coincidan con el título
+    peli_buscarti = [
+        pelicula for pelicula in peliculas if peliculas.get("categoria", "").lower() == titulo.lower()
+    ]
+    # Imprime el resultado de la búsqueda
+    if peli_buscarti:
+        print(f"Libros encontrados con el título '{titulo}':")
+        print(tabulate(peli_buscarti, headers="keys", tablefmt="grid"))
+    else:
+        print(f"No se encontraron libros con el título '{titulo}'.")
+
+
+    kk.append(peli_buscarti)

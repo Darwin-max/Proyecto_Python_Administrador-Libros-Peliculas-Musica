@@ -218,17 +218,17 @@ def eliminele():
         except ValueError:
             print("Por favor, seleccionar una opcion valida")
 
-def verelecat( libro, pelicula, musica):
+def verelecat(categoria):
     while True:
         print(verelementosPorcategoria)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
             if opcion == 1:
-                verEle_categoriaLibr(libro)
+                verEle_categoriaLibr(categoria)
             elif opcion == 2:
-                buiscar_categoriaPeli(pelicula)
+                buiscar_categoriaPeli(categoria)
             elif opcion == 3:
-                buiscar_catemusica(musica)
+                buiscar_catemusica(categoria)
             elif opcion == 4:
                 break
             else:

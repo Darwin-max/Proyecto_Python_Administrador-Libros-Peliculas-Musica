@@ -35,7 +35,9 @@ def añadirElpeli(ll):
                 genero = input("Género: ").strip()
                 año = input("Año de publicación: ").strip() # Año de la película
                 descripcion = input("Descripción: ").strip()
+                categoria = input("Categoria")
                 valoracion = int(input("Valoracion: "))
+                
 
                 while valoracion < 1 or valoracion > 10:
                         print("Valoración no válida. Debe estar entre 1 y 10.")
@@ -48,8 +50,10 @@ def añadirElpeli(ll):
                         "genero": genero,
                         "anio_publicacion": año,
                         "descripcion": descripcion,
-                        "valoracion": valoracion
+                        "valoracion": valoracion, 
+                        "categoria": categoria
                 }
+                print(tabulate( [nueva_pelicula], headers="keys", tablefmt="grid"))
                 ll.append(nueva_pelicula)
                 return nueva_pelicula
                 # Retornar el libro añadido
@@ -65,7 +69,7 @@ def ver_peliculas(): # Buscar una película en la lista de películas
 
 
 def peliculas_():
-        peliculas = openJSON("pelicula")
+        peliculas = openJSON("peliculas")
         sarey = []
         for dicccionario in peliculas:
                 dicccionario.pop("categoria")
@@ -75,6 +79,7 @@ def peliculas_():
                 dicccionario.pop("director")
                 dicccionario.pop("valoracion")
                 dicccionario.pop("descripcion")
+                
                 sarey.append(dicccionario)
         print(tabulate(sarey, headers="keys", tablefmt="grid"))
                 

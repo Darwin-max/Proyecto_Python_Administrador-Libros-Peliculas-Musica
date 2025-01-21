@@ -4,17 +4,22 @@ from formula.PARA_TODO import *
 
 def buiscar_pelicula():
     peliculas = openJSON("peliculas")  # Carga la lista de libros desde el archivo JSON
-    peliculas_() # Llama a una función para mostrar información (si la tienes definida)    
+    
+    if not peliculas:
+        print("No hay libros disponibles para buscar.")
+        return
+    
+
+    peliculas_()    # Llama a una función para mostrar información (si la tienes definida)
     print("¿Qué pelicula deseas buscar?")# Solicita el título al usuario
     titulo = input("Título: ")  # Elimina espacios al inicio y final
-
-    for peliculas in peliculas:
-        if peliculas["titulo"] == titulo:
-            print(tabulate([peliculas], headers="keys", tablefmt="grid"))
-            writeJSON("pelicula", peliculas)
-            break
+    peli_buscarti = [pel for pel in peliculas if pel.get("titulo", "").lower() == titulo.lower()]
+    if peli_buscarti:
+        print(f"Libros encontrados con el título '{titulo}':")
+        print(tabulate(peli_buscarti, headers="keys", tablefmt="grid"))
     else:
-        print("No se encontró el pelicula")
+        print(f"No se encontraron libros con el título '{titulo}'.")
+
 
 def buisr_pelicula():
     peliculas = openJSON("peliculas")
@@ -156,13 +161,15 @@ def elim_titulo():
     titulo = input("¿Que libro deceas editar")
 
     for pelicula in peliculas:
-        if pelicula.get("titulo", "").remove() == titulo.remove():
-            print("Pelicula encontrada:")
-            print(tabulate(peliculas, headers="keys", tablefmt="grid"))
-            writeJSON("pelicula", peliculas)
-            break
-        else:
-            print(f"No se encontro un libro con el titulo'{peliculas}'")
+            if pelicula.get("titulo", "") == titulo:
+                print("Película encontrada:")
+                peliculas.remove(pelicula)  # Aquí sí puedes usar `.remove()` porque `peliculas` es una lista
+                print(tabulate(peliculas, headers="keys", tablefmt="grid"))
+                writeJSON("peliculas", peliculas)
+                break
+    else:
+            print(f"No se encontró una película con el título '{titulo}'.")
+
 
 def elim_Idpelicul():
     peliculas = openJSON("peliculas")

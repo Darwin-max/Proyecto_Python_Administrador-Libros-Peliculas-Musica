@@ -34,7 +34,9 @@ def añadireleMusica(ll):
                 artista = input("Artista: ").strip()
                 genero = input("Género: ").strip()
                 año = input("Año: ").strip()
+                categoria = input("categoria")
                 valoracion = input("valoracion: ").strip()
+                
 
                 while valoracion < 1 or valoracion > 10:
                         print("Valoración no válida. Debe estar entre 1 y 10.")
@@ -46,8 +48,10 @@ def añadireleMusica(ll):
                 "Artista": artista,
                 "Género": genero,
                 "Año": año,
-                "valoracion": valoracion
+                "valoracion": valoracion,
+                "categoria": categoria
                 }
+                print(tabulate( [nueva_cancion], headers="keys", tablefmt="grid"))
                 ll.append(nueva_cancion)
                 return nueva_cancion  # Retornar la canción añadida
 
@@ -71,7 +75,7 @@ def musicadd():
                 dicccionario.pop("genero")
                 dicccionario.pop("cantante")
                 dicccionario.pop("disco")
-                
+                dicccionario.pop("valoracion")
                 
                 Nahomi.append(dicccionario)
         print(tabulate(Nahomi, headers="keys", tablefmt="grid"))
@@ -87,6 +91,7 @@ def musicos():
                 dicccionario.pop("genero")
                 dicccionario.pop("cancion")
                 dicccionario.pop("disco")
+                dicccionario.pop("valoracion")
                 francy.append(dicccionario)
         print(tabulate(francy, headers="keys", tablefmt="grid"))
                 
@@ -100,6 +105,7 @@ def music():
                 dicccionario.pop("cantante")
                 dicccionario.pop("cancion")
                 dicccionario.pop("disco")
+                dicccionario.pop("valoracion")
                 kenji.append(dicccionario)
         print(tabulate(kenji, headers="keys", tablefmt="grid"))
 
@@ -114,6 +120,7 @@ def misiqu():
                 diccionario.pop("genero")
                 diccionario.pop("autor")
                 diccionario.pop("valoracion")
+                
         tatiana.append(diccionario)
         print(tabulate(tatiana, headers="keys", tablefmt="grid"))
 

@@ -182,7 +182,7 @@ def editele ():
 
 def eliminele():
     while True:
-        print(editarElemento)
+        print(eliminarElemento)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
             match opcion:

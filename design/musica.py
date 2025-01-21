@@ -166,14 +166,15 @@ def eliminar_titulo():
         titulo = input("Título: ").strip()
 
         for musica in musicas:
-            if musica.get("titulo", "").remove() == titulo.remove():
-                print("cancion encontrado:")
-                print(tabulate(musica, headers="keys", tablefmt="grid"))
+            if musica.get("titulo", "") == titulo:
+                print("Canción encontrada:")
+                musicas.remove(musica)  # Aquí sí puedes usar `.remove()` porque `musicas` es una lista
+                print(tabulate(musicas, headers="keys", tablefmt="grid"))
                 writeJSON("musica", musicas)
                 break
-            else:
-                print(f"No se encontro un libro con el título '{titulo}'.") 
-                
+        else:
+            print(f"No se encontró una canción con el titulo '{titulo}'.")
+
 
 def eliminar_idMusi():
         musicas = openJSON("musica")
@@ -186,13 +187,15 @@ def eliminar_idMusi():
         id = input("ID: ").strip()
 
         for musica in musicas:
-            if musica.get("id", "").remove() == id.remove():
-                print("cancion encontrado:")
-                print(tabulate(musica, headers="keys", tablefmt="grid"))
+            if musica.get("id", "") == id:
+                print("Canción encontrada:")
+                musicas.remove(musica)  # Aquí sí puedes usar `.remove()` porque `musicas` es una lista
+                print(tabulate(musicas, headers="keys", tablefmt="grid"))
                 writeJSON("musica", musicas)
                 break
-            else:
-                print(f"No se encontro un libro con el título '{id}'.") 
+        else:
+            print(f"No se encontró una canción con el id '{id}'.")
+
 
 def buiscar_catemusica(kk):
     musica = openJSON("musica")

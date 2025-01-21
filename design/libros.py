@@ -31,29 +31,36 @@ def buscar_libros():
 
 
 def busca_auti():
-    Libros = openJSON("libros")
+    libros = openJSON("libros")  # Carga la lista de libros desde el archivo JSON
+    if not libros:
+        print("No hay libros disponibles para buscar.")
+        return
+    
     Libr()
     print("¿Qué libro deseas buscar?")
-    autor = input("Autor: ")
-    for  Libros in Libros :
-        if Libros ["autor"] == autor:
-            print(tabulate(  Libros, headers="keys", tablefmt="grid"))
-            break
+    autor = input("Autor: ").strip()
+    libros_autor = [libro for libro in libros if libro.get("autor", "").lower() == autor.lower()]
+    if libros_autor:
+        print(f"Libros encontrados con el autor '{autor}':")
+        print(tabulate(libros_autor, headers="keys", tablefmt="grid"))
     else:
-        print("No se encontró el libro")
-    
+        print(f"No se encontraron libros con el autor '{autor}'.")
+        
+
 
 def buscar_gene():
-    Libros = openJSON("libros") 
+    libros = openJSON("libros") 
+    
     nose()
-    print("¿Que libro deseas")
-    genero = input("genero: ")
-    for  Libros in Libros :
-        if Libros ["genero"] == genero:
-            print(tabulate(    Libros, headers="keys", tablefmt="grid"))
-            break
+    print("¿Qué libro deseas buscar?")
+    genero = input("Genero: ").strip()
+    libros_genero = [libro for libro in libros if libro.get("genero", "").lower() == genero.lower()]
+    if libros_genero:
+        print(f"Libros encontrados con el autor '{genero}':")
+        print(tabulate(libros_genero, headers="keys", tablefmt="grid"))
     else:
-        print("No se encontró el libro")
+        print(f"No se encontraron libros con el autor '{genero}'.")
+        
 
 def edit_titulo ():
     libros = openJSON("libros")
@@ -74,8 +81,8 @@ def edit_titulo ():
             print("Título actualizado.")
             writeJSON("libros", libros)
             break
-        else:
-            print(f"No se encontro un libro con el título '{titulo}'.") 
+    else:
+        print(f"No se encontro un libro con el título '{titulo}'.") 
 
 
 
@@ -153,20 +160,23 @@ def eli_titulo ():
     libros = openJSON("libros")
     print (tabulate(libros, headers="keys", tablefmt="grid"))
     if not libros:
-        print("No hay libros disponibles para editar.")
+        print("No hay libros disponibles para eliminar.")
         return
 
-    print("¿Qué libro deseas editar?")
+    print("¿Qué libro deseas eliminar?")
     titulo = input("Título: ").strip()
 
     for libro in libros:
-        if libro.get("titulo", "").remove() == titulo.remove():
-            print("Libro encontrado:")
-            print(tabulate(libros, headers="keys", tablefmt="grid"))
-            writeJSON("libros", libros)
-            break
-        else:
-            print(f"No se encontro un libro con el título '{titulo}'.") 
+        try:
+            if libro.get("titulo", "") == titulo:
+                print("Libro encontrado:")
+                libros.remove(libro)  # Aquí sí puedes usar `.remove()` porque `libros` es una lista
+                print(tabulate(libros, headers="keys", tablefmt="grid"))
+                writeJSON("libros", libros)
+                break
+        except:
+            print(f"No se encontró un libro con el título '{titulo}'.")
+
 
 def eli_id ():
     libros = openJSON("libros")

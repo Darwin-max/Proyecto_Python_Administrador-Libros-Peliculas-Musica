@@ -26,7 +26,7 @@ if __name__ == '__main__':
          elif opcion == 5:
             eliminele()
          elif opcion == 6:
-            verelecat(categoria)
+            verelecat(input("ingrese la categoria: "))
          elif opcion == 7:
             guardarcargar(libro, pelicula, musica)
          elif opcion == 8:

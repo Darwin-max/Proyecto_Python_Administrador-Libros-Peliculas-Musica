@@ -20,7 +20,7 @@ def añadirEle(ll):
                 opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
                 if opc == '0' :
                         break     
-                print(tabulate(libros,libros, headers="keys", tablefmt="grid"))        # Mostrar la colección actual
+                print(tabulate(libros, headers="keys", tablefmt="grid"))        # Mostrar la colección actual
                 nuevo_id = max([libro.get("id", 0) for libro in libros], default=0) + 1 # Generar un ID único para el nuevo libro                nuevo_libro["id"] = nuevo_id    # Añadir el ID al nuevo libro
                 id = nuevo_id
                 titulo = input("Título: ") .strip()                # Solicitar datos al usuario
@@ -28,7 +28,9 @@ def añadirEle(ll):
                 genero = input("Género: ").strip()
                 año = int(input("Año: "))
                 descripcion = input("Descripción: ").strip()
-                valoracion = int(input("valoracion: "))
+                coleccion = input("Coleccion: ")
+                valoracion = int(input("valoracion: ")),
+                
                 # Crear el nuevo libro como un diccionario
                 
                 while valoracion < 1 or valoracion > 10:
@@ -42,10 +44,14 @@ def añadirEle(ll):
                         "genero": genero,
                         "anio_publicacion": año,
                         "descripcion": descripcion,
-                        "valoracion" : valoracion
-                        }
+                        "valoracion" : valoracion,
+                        "coleccion " : coleccion
+                }
                         # Añadir el libro a la colección
-                ll.append(nuevo_libro)
+
+                print(tabulate( [nuevo_libro], headers="keys", tablefmt="grid"))
+                
+                ll.append(nuevo_libro )
                 return nuevo_libro
                 # Retornar el libro añadido
                 
@@ -67,6 +73,7 @@ def Libros():
                 diccionario.pop("anio_publicacion")
                 diccionario.pop("genero")
                 diccionario.pop("autor")
+                diccionario.pop("valoracion")
                 tatiana.append(diccionario)
         print(tabulate(tatiana, headers="keys", tablefmt="grid"))
 
@@ -76,11 +83,12 @@ def Libr():
         sara = []
         for diccionario in libros:
                 diccionario.pop("categoria")
-                diccionario("id")
+                diccionario.pop("id")
                 diccionario.pop("descripcion")  
                 diccionario.pop("anio_publicacion")
                 diccionario.pop("genero")
                 diccionario.pop("titulo")
+                diccionario.pop("valoracion")
                 sara.append(diccionario)
         print(tabulate( sara, headers="keys", tablefmt="grid"))
 
@@ -95,6 +103,7 @@ def nose():
                 diccionario.pop("anio_publicacion")
                 diccionario.pop("autor")
                 diccionario.pop("titulo")
+                diccionario.pop("valoracion")
                 juli.append(diccionario)
         print(tabulate(juli, headers="keys", tablefmt="grid"))
 
@@ -109,5 +118,6 @@ def catego():
                 diccionario.pop("anio_publicacion")
                 diccionario.pop("genero")
                 diccionario.pop("autor")
+                diccionario.pop("valoracion")
         tatiana.append(diccionario)
         print(tabulate(tatiana, headers="keys", tablefmt="grid"))

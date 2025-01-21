@@ -3,6 +3,15 @@ import tempfile
 from tabulate import tabulate
 from formula.PARA_TODO import *
 
+def validar_numero(mensaje):
+        while True:
+                try:
+                        valor = int(input(mensaje))
+                        return valor
+                except ValueError:
+                        print("Por favor, ingrese un número válido.")
+
+
 def añadirElpeli():
         while True:
                 opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
@@ -20,19 +29,27 @@ def añadirElpeli():
                         print("La lista está vacía.")
 
                 # Solicitar los datos de la nueva película
+                nuevo_id = max([peliculas.get("id", 0) for peliculas in peliculas], default=0) + 1 # Generar un ID único para el nuevo libro                nuevo_libro["id"] = nuevo_id    # Añadir el ID al nuevo libro
+                id = nuevo_id
                 titulo = input("Título: ").strip()
                 director = input("Director: ").strip()
                 genero = input("Género: ").strip()
                 año = input("Año de publicación: ").strip() # Año de la película
                 descripcion = input("Descripción: ").strip()
+                valoracion = int(input("Valoracion: "))
 
+                while valoracion < 1 or valoracion > 10:
+                        print("Valoración no válida. Debe estar entre 1 y 10.")
+                        valoracion = int(input("Valoracion: "))
                 # Crear un diccionario con los datos de la película
                 nueva_pelicula = {
+                        "id": id,
                         "titulo": titulo,
                         "director": director,
                         "genero": genero,
                         "anio_publicacion": año,
-                        "descripcion": descripcion
+                        "descripcion": descripcion,
+                        "valoracion": valoracion
                 }
 
                 # Añadir la nueva película a la lista de películas
@@ -40,8 +57,9 @@ def añadirElpeli():
                 peliculaNueva = añadirElpeli()  # Llamar a la función para añadir una película
                 print("Nueva película añadida:")      # Mostrar la nueva película añadida en formato tabular
                 print(tabulate(peliculaNueva, headers="keys", tablefmt="grid"))
+                
                 with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:        # Guardar los datos de la nueva película en un archivo JSON temporal
-                        json.dump(peliculaNueva, archivo_temp, indent=4)
+                        json.dump(nueva_pelicula, archivo_temp, indent=4)
                 print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
                 return nueva_pelicula  # Retornar la película añadida
 
@@ -57,6 +75,7 @@ def peliculas_():
         peliculas = openJSON("pelicula")
         sarey = []
         for dicccionario in peliculas:
+                dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("año")
                 dicccionario.pop("director")
@@ -71,6 +90,7 @@ def pelicas_():
         pelicula = openJSON("peliculas")
         amor =  []
         for dicccionario in pelicula:
+                dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("año")
                 dicccionario.pop("titulo")
@@ -84,6 +104,7 @@ def masTarde (): # para mostrar las peliculas por genero
         pelicula = openJSON("peliculas")
         cansado = []
         for dicccionario in pelicula:
+                dicccionario.pop("id")
                 dicccionario.pop("director")
                 dicccionario.pop("año")
                 dicccionario.pop("titulo")

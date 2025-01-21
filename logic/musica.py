@@ -4,7 +4,13 @@ from tabulate import tabulate
 from formula.PARA_TODO import openJSON
 
 
-
+def validar_numero(mensaje):
+        while True:
+                try:
+                        valor = int(input(mensaje))
+                        return valor
+                except ValueError:
+                        print("Por favor, ingrese un número válido.")
 
 def añadireleMusica():
         while True:
@@ -12,10 +18,9 @@ def añadireleMusica():
                 if opc == '0' :                                 #este es if se esta utilizando por que quedava retornando de manera infita  agrgar un producto
                         break     
                 musica = openJSON("musica") # Cargar los datos de la lista de música
-                input("\nPresione Enter para continuar...")
-                """
-                Añade una nueva canción a la lista de música y retorna la canción añadida.
-                """
+                input("Presione Enter para continuar...")
+                
+                #Añade una nueva canción a la lista de música y retorna la canción añadida.
                 # Mostrar la lista actual de música
                 if musica:
                         print("Lista actual de música:")
@@ -24,27 +29,34 @@ def añadireleMusica():
                         print("La lista está vacía.")
 
                 # Solicitar los datos de la nueva canción
+                nuevo_id = max([musica.get("id", 0) for musica in musica], default=0) + 1 # Generar un ID único para el nuevo libro                nuevo_libro["id"] = nuevo_id    # Añadir el ID al nuevo libro
+                id = nuevo_id
                 cancion = input("Canción: ").strip()
                 artista = input("Artista: ").strip()
                 genero = input("Género: ").strip()
                 año = input("Año: ").strip()
+                valoracion = input("valoracion: ").strip()
 
+                while valoracion < 1 or valoracion > 10:
+                        print("Valoración no válida. Debe estar entre 1 y 10.")
+                        valoracion = int(input("Valoracion: "))
                 # Crear un diccionario con los datos de la canción
                 nueva_cancion = {
+                "id": id,
                 "Canción": cancion,
                 "Artista": artista,
                 "Género": genero,
-                "Año": año
+                "Año": año,
+                "valoracion": valoracion
                 }
-
-                
                 musica.append(nueva_cancion)    # Añadir la nueva canción a la lista de música
                 cancionNueva = añadireleMusica()        # Llamar a la función para añadir una canción
                 print("Nueva canción añadida:")         # Mostrar la nueva canción añadida en formato tabular
                 print(tabulate(cancionNueva, headers="keys", tablefmt="grid"))
+                
                 with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:       # Guardar los datos de la nueva canción en un archivo JSON temporal
-                        json.dump(cancionNueva, archivo_temp, indent=4)
-                print(f"\nArchivo JSON temporal creado en: {archivo_temp.name}")
+                        json.dump(nueva_cancion, archivo_temp, indent=4)
+                print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
                 return nueva_cancion  # Retornar la canción añadida
 
 # este es el segundo punto del proyecto que es buscar una cancion en la lista de musica 
@@ -62,6 +74,7 @@ def musicadd():
         musica = openJSON("musica")
         Nahomi = []
         for dicccionario in musica:
+                dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("cantante")
                 dicccionario.pop("disco")
@@ -76,6 +89,7 @@ def musicos():
         musicass = openJSON ("musica")
         francy = []
         for dicccionario in musicass:
+                dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("cancion")
                 dicccionario.pop("disco")
@@ -87,6 +101,7 @@ def music():
         musicas = openJSON("musica")
         kenji = []
         for dicccionario in musicas:
+                dicccionario.pop("id")
                 dicccionario.pop("cantante")
                 dicccionario.pop("cancion")
                 dicccionario.pop("disco")

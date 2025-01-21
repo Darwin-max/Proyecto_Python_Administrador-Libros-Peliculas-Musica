@@ -1,9 +1,12 @@
 
 from design.menus import menuPrincipal
 from logic.Libros import *
-from design.general import añadirElemento, conti, noloencuentro, editele
+from design.general import *
 
 #     Muestra el menú principal y permite seleccionar entre las opciones 
+libro = []
+pelicula = []
+musica = []
 
 if __name__ == '__main__':
    while True:
@@ -12,7 +15,7 @@ if __name__ == '__main__':
          opcion = int(input("Ingrese el número de la opción: "))
 
          if opcion == 1:
-            añadirElemento()
+            añadirElemento(libro)
          elif opcion == 2:
             conti()
          elif opcion == 3:
@@ -20,11 +23,13 @@ if __name__ == '__main__':
          elif opcion == 4:
             editele()
          elif opcion == 5:
-            eliminele()
+            #eliminele()
+            pass
          elif opcion == 6:
-            verelecat()
+            #verelcat()
+            pass
          elif opcion == 7:
-            guardarcargar()
+            guardarcargar(libro, pelicula, musica)
          elif opcion == 8:
             print("¡Hasta luego!")
             break

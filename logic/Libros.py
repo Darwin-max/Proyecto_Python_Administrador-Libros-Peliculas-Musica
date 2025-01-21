@@ -1,7 +1,8 @@
-import json
-import tempfile
+
 from tabulate import tabulate
 from formula.PARA_TODO import *
+
+
 
 def validar_numero(mensaje):
         while True:
@@ -11,9 +12,8 @@ def validar_numero(mensaje):
                 except ValueError:
                         print("Por favor, ingrese un número válido.")
 
-
 libros = openJSON("libros")  # Carga la lista de libros desde un archivo JSON
-def añadirEle():
+def añadirEle(libro):
         while True:
                 opc = input("ingrese s para añadir un nuevo libro y 0 para terminar: ")
                 if opc == '0' :
@@ -24,9 +24,9 @@ def añadirEle():
                 titulo = input("Título: ") .strip()                # Solicitar datos al usuario
                 autor = input("Autor: ").strip()
                 genero = input("Género: ").strip()
-                año = int(input("Año: ")).strip()
+                año = int(input("Año: "))
                 descripcion = input("Descripción: ").strip()
-                valoracion = int(input("valoracion: ")).strip()
+                valoracion = int(input("valoracion: "))
                 # Crear el nuevo libro como un diccionario
                 
                 while valoracion < 1 or valoracion > 10:
@@ -43,17 +43,12 @@ def añadirEle():
                         "valoracion" : valoracion
                         }
                         # Añadir el libro a la colección
-                libros.append(nuevo_libro)
+                libro.append(nuevo_libro)
                 # Retornar el libro añadido
                 libroNuevo = añadirEle()                # Llamar a la función para añadir un libro y guardar el resultado en `libroNuevo`
                 print(libroNuevo)
                 print("Nuevo libro añadido:")           # Mostrar el nuevo libro añadido en formato tabular
                 print(tabulate(libroNuevo, headers="keys", tablefmt="grid"))
-
-                with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:
-                # Guardar los datos JSON en el archivo temporal
-                        json.dump(nuevo_libro, archivo_temp, indent=4)
-                print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
                 return nuevo_libro 
                 
 

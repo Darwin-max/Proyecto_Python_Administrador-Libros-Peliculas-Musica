@@ -1,6 +1,3 @@
-
-import json
-import tempfile
 from tabulate import tabulate
 from logic.Libros import Libros , Libr, nose
 from formula.PARA_TODO import openJSON
@@ -79,11 +76,7 @@ def edit_titulo ():
             break
         else:
             print(f"No se encontro un libro con el título '{titulo}'.") 
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(libro, temp_file, indent=4)
-            temp_file_path = temp_file.name
 
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
 
 
 def edit_autor ():
@@ -106,12 +99,7 @@ def edit_autor ():
             break
         else:
             print(f"No se encontro un libro con ese autor '{autor}'.") 
-        #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(libro, temp_file, indent=4)
-            temp_file_path = temp_file.name
 
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
 
 def edit_generoLibro ():
     libros = openJSON("libros")
@@ -134,11 +122,7 @@ def edit_generoLibro ():
         else:
             print(f"No se encontro un libro con ese genero '{Genero}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(libro, temp_file, indent=4)
-            temp_file_path = temp_file.name
 
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
 
 def edit_valoraLibro ():
     libros = openJSON("libros")
@@ -161,9 +145,3 @@ def edit_valoraLibro ():
         else:
             print(f"No se encontro un libro con esa valoracion '{valo}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(libro, temp_file, indent=4)
-            temp_file_path = temp_file.name
-
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
-

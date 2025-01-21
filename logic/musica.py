@@ -1,5 +1,4 @@
-import json
-import tempfile
+
 from tabulate import tabulate
 from formula.PARA_TODO import openJSON
 
@@ -54,9 +53,7 @@ def añadireleMusica():
                 print("Nueva canción añadida:")         # Mostrar la nueva canción añadida en formato tabular
                 print(tabulate(cancionNueva, headers="keys", tablefmt="grid"))
                 
-                with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:       # Guardar los datos de la nueva canción en un archivo JSON temporal
-                        json.dump(nueva_cancion, archivo_temp, indent=4)
-                print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
+
                 return nueva_cancion  # Retornar la canción añadida
 
 # este es el segundo punto del proyecto que es buscar una cancion en la lista de musica 

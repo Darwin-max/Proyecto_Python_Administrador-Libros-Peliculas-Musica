@@ -1,5 +1,4 @@
-import json
-import tempfile
+
 from tabulate import tabulate
 from formula.PARA_TODO import *
 
@@ -58,9 +57,7 @@ def añadirElpeli():
                 print("Nueva película añadida:")      # Mostrar la nueva película añadida en formato tabular
                 print(tabulate(peliculaNueva, headers="keys", tablefmt="grid"))
                 
-                with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as archivo_temp:        # Guardar los datos de la nueva película en un archivo JSON temporal
-                        json.dump(nueva_pelicula, archivo_temp, indent=4)
-                print(f"Archivo JSON temporal creado en: {archivo_temp.name}")
+
                 return nueva_pelicula  # Retornar la película añadida
 
 def ver_peliculas(): # Buscar una película en la lista de películas

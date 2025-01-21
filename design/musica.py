@@ -1,8 +1,8 @@
-import json
+
 from tabulate import tabulate
 from logic.musica import musicadd, musicos, music
 from formula.PARA_TODO import openJSON
-import tempfile
+
 
 
 
@@ -75,11 +75,8 @@ def modificar_titulo():
             else:
                 print(f"No se encontro un libro con el título '{titulo}'.") 
                 #guardar el json en un archivo temporal para pode guardarlo en el 7 punto de guardar guardar guardar
-        with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(musica, temp_file, indent=4)
-            temp_file_path = temp_file.name
+    
 
-        print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
 
 def edit_autorMusi ():
     musicas = openJSON("peliculas")
@@ -102,11 +99,9 @@ def edit_autorMusi ():
         else:
             print(f"No se encontro un cansion con ese artista'{artista}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(musica, temp_file, indent=4)
-            temp_file_path = temp_file.name
 
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+
 
 def edit_genroMusi ():
     musicas = openJSON("peliculas")
@@ -129,11 +124,7 @@ def edit_genroMusi ():
         else:
             print(f"No se encontro un cansion con ese genero'{genero}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(musica, temp_file, indent=4)
-            temp_file_path = temp_file.name
 
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
 
 
 def edit_valorMusi ():
@@ -157,8 +148,6 @@ def edit_valorMusi ():
         else:
             print(f"No se encontro un cansion con esa valoracion'{valo}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
-    with tempfile.NamedTemporaryFile('w', delete=False, suffix='.json') as temp_file:
-            json.dump(musica, temp_file, indent=4)
-            temp_file_path = temp_file.name
 
-    print(f"Archivo JSON actualizado temporalmente en: {temp_file_path}")
+
+

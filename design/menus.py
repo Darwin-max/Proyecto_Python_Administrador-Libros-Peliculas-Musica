@@ -92,13 +92,13 @@ Selecciona una opción (1-5):
 # ===========================================
 # Selecciona una opción (1-4):
 # """
-# guardarCargar = """===========================================
-#         Guardar y Cargar Colección
-# ===========================================
-# ¿Qué deseas hacer?
-# 1. Guardar la Colección Actual
-# 2. Cargar una Colección Guardada
-# 3. Regresar al Menú Principal
-# ===========================================
-# Selecciona una opción (1-3):
-# """
+guardarCargar = """===========================================
+        Guardar y Cargar Colección
+===========================================
+¿Qué deseas hacer?
+1. Guardar la Colección Actual
+2. Cargar una Colección Guardada
+3. Regresar al Menú Principal
+===========================================
+Selecciona una opción (1-3):
+"""

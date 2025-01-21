@@ -7,15 +7,17 @@ from design.menus import *
 from design.peliculas import buiscar_pelicula, buisr_pelicula, uisr_peliculas, editer_titulo, edit_autorpeli, edit_peli
 from design.manu_de_buscar import menu
 from design.musica import buiscar_musica, buste,  buisr_musicar, modificar_titulo, edit_autorMusi, edit_genroMusi, edit_genroMusi, edit_valorMusi
+from formula.PARA_TODO import *
 
-def añadirElemento():    
+
+def añadirElemento(libro):    
     while True:
         print(añadir_emtos)
         try:
             opcion = int(input("Ingrese el número de la opción: "))
             match opcion:
                 case 1:
-                    añadirEle()
+                    añadirEle(libro)
                     
                 case 2:
                     añadirElpeli()
@@ -212,20 +214,31 @@ def editele ():
 #         except ValueError:
 #             print("Por favor, selecciona una opción válida.")
 
-# def guardarcargar():
-#     while True:
-#         print(guardarCargar)
-#         try:
-#             opcion = int(input("Ingrese el número de la opción: "))
-#             if opcion == 1:
-#                 pass
-#             elif opcion == 2:
-#                 pass
-#             elif opcion == 3:
-#                 break
-#             else:
-#                 print("Por favor, selecciona una opción válida.")
-#         except ValueError:
-#             print("Por favor, selecciona una opción válida.")
+
+def saveColection(libro, pelicula, musica):
+    book = openJSON("libros")
+    music = openJSON("Musica")
+    movie = openJSON("peliculas")
+    book.extend(libro)
+    music.extend(musica)
+    movie.extend(pelicula)
+    print('hecho')
+    input('Press Enter...')
+
+def guardarcargar(libro, pelicula, musica):
+    while True:
+        print(guardarCargar)
+        try:
+            opcion = int(input("Ingrese el número de la opción: "))
+            if opcion == 1:
+                saveColection(libro, pelicula, musica)
+            elif opcion == 2:
+                pass
+            elif opcion == 3:
+                break
+            else:
+                print("Por favor, selecciona una opción válida.")
+        except ValueError:
+            print("Por favor, selecciona una opción válida.")
 
 

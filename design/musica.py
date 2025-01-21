@@ -1,6 +1,6 @@
 
 from tabulate import tabulate
-from logic.musica import musicadd, musicos, music
+from logic.musica import musicadd, musicos, music, misiqu
 from formula.PARA_TODO import *
 
 
@@ -155,3 +155,53 @@ def edit_valorMusi ():
 
 
 
+def eliminar_titulo():
+        musicas = openJSON("musica")
+        print (tabulate(musicas, headers="keys", tablefmt="grid"))
+        if not musicas:
+            print("No hay canciones disponibles para editar.")
+            return
+
+        print("¿Qué cancion deseas editar?")
+        titulo = input("Título: ").strip()
+
+        for musica in musicas:
+            if musica.get("titulo", "").remove() == titulo.remove():
+                print("cancion encontrado:")
+                print(tabulate(musica, headers="keys", tablefmt="grid"))
+                writeJSON("musica", musicas)
+                break
+            else:
+                print(f"No se encontro un libro con el título '{titulo}'.") 
+                
+
+def eliminar_idMusi():
+        musicas = openJSON("musica")
+        print (tabulate(musicas, headers="keys", tablefmt="grid"))
+        if not musicas:
+            print("No hay canciones disponibles para eliminar.")
+            return
+
+        print("¿Qué cancion deseas editar?")
+        id = input("ID: ").strip()
+
+        for musica in musicas:
+            if musica.get("id", "").remove() == id.remove():
+                print("cancion encontrado:")
+                print(tabulate(musica, headers="keys", tablefmt="grid"))
+                writeJSON("musica", musicas)
+                break
+            else:
+                print(f"No se encontro un libro con el título '{id}'.") 
+
+def buiscar_catemusica():
+    musica = openJSON("musica")
+    misiqu()
+    print("¿Qué categoria deseas buscar?")
+    cancion = input("Categoria: ")
+    for musica in musica:
+        if musica["categoria"] == cancion:
+            print(tabulate([musica], headers="keys", tablefmt="grid"))
+            break
+    else:
+        print("No se encontró la pelicula")

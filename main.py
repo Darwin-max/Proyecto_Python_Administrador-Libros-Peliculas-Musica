@@ -7,6 +7,7 @@ from design.general import *
 libro = []
 pelicula = []
 musica = []
+categoria = []
 
 if __name__ == '__main__':
    while True:
@@ -23,11 +24,9 @@ if __name__ == '__main__':
          elif opcion == 4:
             editele()
          elif opcion == 5:
-            #eliminele()
-            pass
+            eliminele()
          elif opcion == 6:
-            #verelcat()
-            pass
+            verelecat(categoria)
          elif opcion == 7:
             guardarcargar(libro, pelicula, musica)
          elif opcion == 8:

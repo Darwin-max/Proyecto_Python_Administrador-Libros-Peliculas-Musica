@@ -5,7 +5,8 @@
         "cantante": "Carlos Vives y Shakira",
         "genero": "Vallenato/Pop",
         "disco": "Vives",
-        "valoracion": 4.5
+        "valoracion": 4.5,
+        "categoria": "Colaboración"
     },
     {
         "id": 2,
@@ -13,30 +14,34 @@
         "cantante": "Cafe Tacvba",
         "genero": "Rock Alternativo",
         "disco": "Cuatro Caminos",
-        "valoracion": 4.7
+        "valoracion": 4.7,
+        "categoria": "Romántica"
     },
     {
         "id": 3,
         "cancion": "Mi Gente",
         "cantante": "J Balvin",
-        "genero": "Reguet\u00f3n",
+        "genero": "Reguetón",
         "disco": "Vibras",
-        "valoracion": 4.3
+        "valoracion": 4.3,
+        "categoria": "Bailable"
     },
     {
         "id": 4,
         "cancion": "Clavado en un Bar",
-        "cantante": "Man\u00e1",
+        "cantante": "Maná",
         "genero": "Rock Latino",
-        "disco": "Sue\u00f1os L\u00edquidos",
-        "valoracion": 4.6
+        "disco": "Sueños Líquidos",
+        "valoracion": 4.6,
+        "categoria": "Melancólica"
     },
     {
         "id": 5,
         "cancion": "Hips Don't Lie",
         "cantante": "Shakira",
-        "genero": "Pop/Reguet\u00f3n",
+        "genero": "Pop/Reguetón",
         "disco": "Oral Fixation, Vol. 2",
-        "valoracion": 4.8
+        "valoracion": 4.8,
+        "categoria": "Éxito Internacional"
     }
 ]

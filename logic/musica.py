@@ -66,6 +66,7 @@ def musicadd():
         musica = openJSON("musica")
         Nahomi = []
         for dicccionario in musica:
+                dicccionario.pop("categoria")
                 dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("cantante")
@@ -81,6 +82,7 @@ def musicos():
         musicass = openJSON ("musica")
         francy = []
         for dicccionario in musicass:
+                dicccionario.pop("categoria")
                 dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("cancion")
@@ -93,10 +95,24 @@ def music():
         musicas = openJSON("musica")
         kenji = []
         for dicccionario in musicas:
+                dicccionario.pop("categoria")
                 dicccionario.pop("id")
                 dicccionario.pop("cantante")
                 dicccionario.pop("cancion")
                 dicccionario.pop("disco")
                 kenji.append(dicccionario)
         print(tabulate(kenji, headers="keys", tablefmt="grid"))
+
+def misiqu():
+        libros = openJSON("libros")
+        tatiana = []
+        for diccionario in libros:
+                diccionario.pop("titulo")
+                diccionario.pop("id")
+                diccionario.pop("descripcion")  
+                diccionario.pop("anio_publicacion")
+                diccionario.pop("genero")
+                diccionario.pop("autor")
+        tatiana.append(diccionario)
+        print(tabulate(tatiana, headers="keys", tablefmt="grid"))
 

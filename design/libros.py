@@ -1,5 +1,5 @@
 from tabulate import tabulate
-from logic.Libros import Libros , Libr, nose
+from logic.Libros import Libros , Libr, nose , catego
 from formula.PARA_TODO import *
 
 
@@ -37,7 +37,7 @@ def busca_auti():
     autor = input("Autor: ")
     for  Libros in Libros :
         if Libros ["autor"] == autor:
-            print(tabulate( [   Libros], headers="keys", tablefmt="grid"))
+            print(tabulate(  Libros, headers="keys", tablefmt="grid"))
             break
     else:
         print("No se encontró el libro")
@@ -148,3 +148,66 @@ def edit_valoraLibro ():
         else:
             print(f"No se encontro un libro con esa valoracion '{valo}'.") 
         #esto es para que no se modifique el json original de una ves si no que lo gusrde en un json temporal
+
+def eli_titulo ():
+    libros = openJSON("libros")
+    print (tabulate(libros, headers="keys", tablefmt="grid"))
+    if not libros:
+        print("No hay libros disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    titulo = input("Título: ").strip()
+
+    for libro in libros:
+        if libro.get("titulo", "").remove() == titulo.remove():
+            print("Libro encontrado:")
+            print(tabulate(libros, headers="keys", tablefmt="grid"))
+            writeJSON("libros", libros)
+            break
+        else:
+            print(f"No se encontro un libro con el título '{titulo}'.") 
+
+def eli_id ():
+    libros = openJSON("libros")
+    print (tabulate(libros, headers="keys", tablefmt="grid"))
+    if not libros:
+        print("No hay libros disponibles para editar.")
+        return
+
+    print("¿Qué libro deseas editar?")
+    ID = input("Título: ").strip()
+
+    for libro in libros:
+        if libro.get("titulo", "").remove() == ID.remove():
+            print("Libro encontrado:")
+            print(tabulate(libros, headers="keys", tablefmt="grid"))
+            writeJSON("libros", libros)
+            break
+        else:
+            print(f"No se encontro un libro con el título '{ID}'.")
+
+
+
+def verEle_categoriaLibr ():
+    libros = openJSON("libros")  # Carga la lista de libros desde el archivo JSON
+    catego()  # Llama a una función para mostrar información (si la tienes definida)
+    # Verifica si hay libros cargados
+    if not libros:
+        print("No hay libros disponibles para buscar.")
+        return
+    
+    print("¿Qué libro deseas buscar?")  # Solicita el título al usuario
+    titulo = input("categoria: ").strip()  # Elimina espacios al inicio y final
+    # Busca libros que coincidan con el título
+    libros_buscarti = [
+        libro for libro in libros if libro.get("titulo", "").lower() == titulo.lower()
+    ]
+    # Imprime el resultado de la búsqueda
+    if libros_buscarti:
+        print(f"Libros encontrados con el título '{titulo}':")
+        print(tabulate(libros_buscarti, headers="keys", tablefmt="grid"))
+    else:
+        print(f"No se encontraron libros con el título '{titulo}'.")
+
+

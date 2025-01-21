@@ -1,5 +1,5 @@
 from tabulate import tabulate
-from logic.pelicula import  peliculas_ , pelicas_, masTarde
+from logic.pelicula import  peliculas_ , pelicas_, masTarde, cantio
 from formula.PARA_TODO import *
 
 def buiscar_pelicula():
@@ -145,3 +145,52 @@ def edit_valopeli ():
             break
         else:
             print(f"No se encontro un pelicula con el ese valoracion '{valo}'.") 
+
+def elim_titulo():
+    peliculas = openJSON("peliculas")
+    print(tabulate(peliculas, headers="keys" , tablefmt= "grid"))
+    if not peliculas:
+        print("no hay peliculas disponibles para editar")
+        return
+    print("¿Que libro deceas modificar?")
+    titulo = input("¿Que libro deceas editar")
+
+    for pelicula in peliculas:
+        if pelicula.get("titulo", "").remove() == titulo.remove():
+            print("Pelicula encontrada:")
+            print(tabulate(peliculas, headers="keys", tablefmt="grid"))
+            writeJSON("pelicula", peliculas)
+            break
+        else:
+            print(f"No se encontro un libro con el titulo'{peliculas}'")
+
+def elim_Idpelicul():
+    peliculas = openJSON("peliculas")
+    print(tabulate(peliculas, headers="keys" , tablefmt= "grid"))
+    if not peliculas:
+        print("no hay peliculas disponibles para editar")
+        return
+    print("¿Que libro deceas modificar?")
+    ID = input("ID: ").strip()
+
+    for pelicula in peliculas:
+        if pelicula.get("id", "").remove() == ID.remove():
+            print("Pelicula encontrada:")
+            print(tabulate(peliculas, headers="keys", tablefmt="grid"))
+            writeJSON("pelicula", peliculas)
+            break
+        else:
+            print(f"No se encontro un libro con el titulo'{peliculas}'")
+
+def buiscar_categoriaPeli():
+    peliculas = openJSON("peliculas")  # Carga la lista de libros desde el archivo JSON
+    cantio() # Llama a una función para mostrar información (si la tienes definida)    
+    print("¿Qué pelicula deseas buscar?")# Solicita el título al usuario
+    titulo = input("Categoria: ")  # Elimina espacios al inicio y final
+    for peliculas in peliculas:
+        if peliculas["categoria"] == titulo:
+            print(tabulate([peliculas], headers="keys", tablefmt="grid"))
+            writeJSON("pelicula", peliculas)
+            break
+    else:
+        print("No se encontró el pelicula")

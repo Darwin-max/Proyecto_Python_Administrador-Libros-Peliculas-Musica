@@ -68,6 +68,7 @@ def peliculas_():
         peliculas = openJSON("pelicula")
         sarey = []
         for dicccionario in peliculas:
+                dicccionario.pop("categoria")
                 dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("año")
@@ -83,6 +84,7 @@ def pelicas_():
         pelicula = openJSON("peliculas")
         amor =  []
         for dicccionario in pelicula:
+                dicccionario.pop("categoria")
                 dicccionario.pop("id")
                 dicccionario.pop("genero")
                 dicccionario.pop("año")
@@ -97,6 +99,7 @@ def masTarde (): # para mostrar las peliculas por genero
         pelicula = openJSON("peliculas")
         cansado = []
         for dicccionario in pelicula:
+                dicccionario.pop("categoria")
                 dicccionario.pop("id")
                 dicccionario.pop("director")
                 dicccionario.pop("año")
@@ -106,3 +109,15 @@ def masTarde (): # para mostrar las peliculas por genero
                 cansado.append(dicccionario)
         print(tabulate(    cansado, headers="keys", tablefmt="grid"))
                 
+def cantio():
+        libros = openJSON("libros")
+        tatiana = []
+        for diccionario in libros:
+                diccionario.pop("titulo")
+                diccionario.pop("id")
+                diccionario.pop("descripcion")  
+                diccionario.pop("anio_publicacion")
+                diccionario.pop("genero")
+                diccionario.pop("autor")
+        tatiana.append(diccionario)
+        print(tabulate(tatiana, headers="keys", tablefmt="grid"))

@@ -60,6 +60,7 @@ def Libros():
         libros = openJSON("libros")
         tatiana = []
         for diccionario in libros:
+                diccionario.pop("categoria")
                 diccionario.pop("id")
                 diccionario.pop("descripcion")  
                 diccionario.pop("anio_publicacion")
@@ -73,6 +74,7 @@ def Libr():
         libros = openJSON("libros")
         sara = []
         for diccionario in libros:
+                diccionario.pop("categoria")
                 diccionario("id")
                 diccionario.pop("descripcion")  
                 diccionario.pop("anio_publicacion")
@@ -86,6 +88,7 @@ def nose():
         libros = openJSON("libros")
         juli = []
         for diccionario in libros:
+                diccionario.pop("categoria")
                 diccionario.pop("id")
                 diccionario.pop("descripcion")  
                 diccionario.pop("anio_publicacion")
@@ -94,3 +97,15 @@ def nose():
                 juli.append(diccionario)
         print(tabulate(juli, headers="keys", tablefmt="grid"))
 
+def catego():
+        libros = openJSON("libros")
+        tatiana = []
+        for diccionario in libros:
+                diccionario.pop("titulo")
+                diccionario.pop("id")
+                diccionario.pop("descripcion")  
+                diccionario.pop("anio_publicacion")
+                diccionario.pop("genero")
+                diccionario.pop("autor")
+        tatiana.append(diccionario)
+        print(tabulate(tatiana, headers="keys", tablefmt="grid"))

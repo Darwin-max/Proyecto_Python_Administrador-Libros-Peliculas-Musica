@@ -68,29 +68,29 @@ editarElemento = """
 Selecciona una opción (1-5):
 """
 
-# eliminarElemento = """
-# ===========================================
-#         Eliminar un Elemento
-# ===========================================
-# ¿Cómo deseas eliminar?
-# 1. Eliminar por Título
-# 2. Eliminar por Identificador Único
-# 3. Regresar al Menú Principal
-# ===========================================
-# Selecciona una opción (1-3):
-# """
+eliminarElemento = """
+===========================================
+        Eliminar un Elemento
+===========================================
+¿Cómo deseas eliminar?
+1. Eliminar por Título
+2. Eliminar por Identificador Único
+3. Regresar al Menú Principal
+===========================================
+Selecciona una opción (1-3):
+"""
 
-# verelementosPorcategoria ="""
-# ===========================================
-#         Ver Elementos por Categoría
-# ===========================================
-# ¿Qué categoría deseas ver?
-# 1. Ver Libros
-# 2. Ver Películas
-# 3. Ver Música
-# 4. Regresar al Menú Principal
-# ===========================================
-# Selecciona una opción (1-4):
+verelementosPorcategoria ="""
+===========================================
+        Ver Elementos por Categoría
+===========================================
+¿Qué categoría deseas ver?
+1. Ver Libros
+2. Ver Películas
+3. Ver Música
+4. Regresar al Menú Principal
+===========================================
+Selecciona una opción (1-4):
 # """
 guardarCargarDesign = """===========================================
         Guardar y Cargar Colección
